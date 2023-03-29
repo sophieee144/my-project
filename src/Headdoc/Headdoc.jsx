@@ -1,7 +1,5 @@
 import React from 'react'
-import Dashboard from './Dashboard'
-import Nav from './Nav'
-import Sidebar from './Sidebar/Sidebar'
+import Dashboard from './Dashboard/Dashboard'
 
 const Headdoc = () => {
   return (

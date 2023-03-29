@@ -1,17 +1,17 @@
-<ol class="border-l-2 border-primary dark:border-primary-500">
+<ol className="border-l-2 border-primary dark:border-primary-500">
   <li>
-    <div class="flex-start flex items-center">
+    <div className="flex-start flex items-center">
       <div
-        class="-ml-[9px] mr-3 -mt-2 flex h-4 w-4 items-center justify-center rounded-full bg-primary dark:bg-primary-500"></div>
-      <h4 class="-mt-2 text-xl font-semibold">Title of section 1</h4>
+        className="-ml-[9px] mr-3 -mt-2 flex h-4 w-4 items-center justify-center rounded-full bg-primary dark:bg-primary-500"></div>
+      <h4 className="-mt-2 text-xl font-semibold">Title of section 1</h4>
     </div>
-    <div class="ml-6 mb-6 pb-6">
+    <div className="ml-6 mb-6 pb-6">
       <a
         href="#!"
-        class="text-sm text-primary transition duration-150 ease-in-out hover:text-primary-600 focus:text-primary-600 active:text-primary-700 dark:text-primary-400 dark:hover:text-primary-500 dark:focus:text-primary-500 dark:active:text-primary-600"
+        className="text-sm text-primary transition duration-150 ease-in-out hover:text-primary-600 focus:text-primary-600 active:text-primary-700 dark:text-primary-400 dark:hover:text-primary-500 dark:focus:text-primary-500 dark:active:text-primary-600"
         >4 February, 2022</a
       >
-      <p class="mt-2 mb-4 text-neutral-600 dark:text-neutral-300">
+      <p className="mt-2 mb-4 text-neutral-600 dark:text-neutral-300">
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
         eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
         enim ad minim veniam, quis nostrud exercitation ullamco laboris
@@ -19,7 +19,7 @@
       </p>
       <button
         type="button"
-        class="inline-block rounded bg-primary px-4 pt-[6px] pb-[5px] text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]"
+        className="inline-block rounded bg-primary px-4 pt-[6px] pb-[5px] text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]"
         data-te-ripple-init
         data-te-ripple-color="light">
         Read more
@@ -27,18 +27,18 @@
     </div>
   </li>
   <li>
-    <div class="flex-start flex items-center">
+    <div className="flex-start flex items-center">
       <div
-        class="-ml-[9px] mr-3 -mt-2 flex h-4 w-4 items-center justify-center rounded-full bg-primary dark:bg-primary-500"></div>
-      <h4 class="-mt-2 text-xl font-semibold">Title of section 2</h4>
+        className="-ml-[9px] mr-3 -mt-2 flex h-4 w-4 items-center justify-center rounded-full bg-primary dark:bg-primary-500"></div>
+      <h4 className="-mt-2 text-xl font-semibold">Title of section 2</h4>
     </div>
-    <div class="ml-6 mb-6 pb-6">
+    <div className="ml-6 mb-6 pb-6">
       <a
         href="#!"
-        class="text-sm text-primary transition duration-150 ease-in-out hover:text-primary-600 focus:text-primary-600 active:text-primary-700 dark:text-primary-400 dark:hover:text-primary-500 dark:focus:text-primary-500 dark:active:text-primary-600"
+        className="text-sm text-primary transition duration-150 ease-in-out hover:text-primary-600 focus:text-primary-600 active:text-primary-700 dark:text-primary-400 dark:hover:text-primary-500 dark:focus:text-primary-500 dark:active:text-primary-600"
         >12 January, 2022</a
       >
-      <p class="mt-2 mb-4 text-neutral-600 dark:text-neutral-200">
+      <p className="mt-2 mb-4 text-neutral-600 dark:text-neutral-200">
         Sed ut perspiciatis unde omnis iste natus error sit voluptatem
         accusantium doloremque laudantium, totam rem aperiam, eaque ipsa
         quae ab illo inventore veritatis et quasi architecto beatae vitae
@@ -48,7 +48,7 @@
       </p>
       <button
         type="button"
-        class="inline-block rounded bg-primary px-4 pt-[6px] pb-[5px] text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]"
+        className="inline-block rounded bg-primary px-4 pt-[6px] pb-[5px] text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]"
         data-te-ripple-init
         data-te-ripple-color="light">
         Read more
@@ -56,18 +56,18 @@
     </div>
   </li>
   <li>
-    <div class="flex-start flex items-center">
+    <div className="flex-start flex items-center">
       <div
-        class="-ml-[9px] mr-3 -mt-2 flex h-4 w-4 items-center justify-center rounded-full bg-primary dark:bg-primary-500"></div>
-      <h4 class="-mt-2 text-xl font-semibold">Title of section 3</h4>
+        className="-ml-[9px] mr-3 -mt-2 flex h-4 w-4 items-center justify-center rounded-full bg-primary dark:bg-primary-500"></div>
+      <h4 className="-mt-2 text-xl font-semibold">Title of section 3</h4>
     </div>
-    <div class="ml-6 mb-6 pb-6">
+    <div className="ml-6 mb-6 pb-6">
       <a
         href="#!"
-        class="text-sm text-primary transition duration-150 ease-in-out hover:text-primary-600 focus:text-primary-600 active:text-primary-700 dark:text-primary-400 dark:hover:text-primary-500 dark:focus:text-primary-500 dark:active:text-primary-600"
+        className="text-sm text-primary transition duration-150 ease-in-out hover:text-primary-600 focus:text-primary-600 active:text-primary-700 dark:text-primary-400 dark:hover:text-primary-500 dark:focus:text-primary-500 dark:active:text-primary-600"
         >27 December, 2021</a
       >
-      <p class="mt-2 mb-4 text-neutral-600 dark:text-neutral-200">
+      <p className="mt-2 mb-4 text-neutral-600 dark:text-neutral-200">
         At vero eos et accusamus et iusto odio dignissimos ducimus qui
         blanditiis praesentium voluptatum deleniti atque corrupti quos
         dolores et quas molestias excepturi sint occaecati cupiditate non
@@ -77,7 +77,7 @@
       </p>
       <button
         type="button"
-        class="inline-block rounded bg-primary px-4 pt-[6px] pb-[5px] text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]"
+        className="inline-block rounded bg-primary px-4 pt-[6px] pb-[5px] text-xs font-medium uppercase leading-normal text-white shadow-[0_4px_9px_-4px_#3b71ca] transition duration-150 ease-in-out hover:bg-primary-600 hover:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:bg-primary-600 focus:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)] focus:outline-none focus:ring-0 active:bg-primary-700 active:shadow-[0_8px_9px_-4px_rgba(59,113,202,0.3),0_4px_18px_0_rgba(59,113,202,0.2)]"
         data-te-ripple-init
         data-te-ripple-color="light">
         Read more

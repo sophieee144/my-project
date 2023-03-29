@@ -5,13 +5,13 @@ import Sidebar from '../Headdoc/Sidebar/Sidebar'
 const Content = () => {
   return (
     <div>
-        <div class="flex h-screen">
+        <div className="flex h-screen">
         <Sidebar />
-            <div class="flex-1 flex flex-col">
+            <div className="flex-1 flex flex-col">
                 <nav>
                     <Nav />
                 </nav>
-                <main class="flex-1 p-4">
+                <main className="flex-1 p-4">
                     <h2 className="text-2xl font-bold text-gray-200 mb-6">
                         Dashboard
                     </h2>
