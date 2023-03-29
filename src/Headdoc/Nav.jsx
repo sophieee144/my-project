@@ -7,10 +7,10 @@ function Nav() {
   return (
     <div>
       <nav className="bg-gray-800 ">
-        <div className="max-w-7xl px-4 pt-4 pb-4">
+        <div className="max-w-7xl">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
-              <div className="flex-shrink-0">
+              <div className="flex-shrink-0 ml-4">
                 <img
                   className="h-8 w-8"
                   src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
@@ -18,7 +18,7 @@ function Nav() {
                 />
                 
               </div>
-              <span className="self-center text-2xl font-semibold whitespace-nowrap pl-4 dark:text-white">
+              <span className="self-center text-2xl font-semibold pl-3 dark:text-white">
                 DETECT ++
               </span>
 
@@ -26,7 +26,7 @@ function Nav() {
                         <span className="absolute inset-y-0 left-0 flex items-center py-4 pl-20">
                             <button
                                 type="submit"
-                                className="p-2 focus:outline-none focus:ring text-gray-700 "
+                                className="p-2 focus:outline-none focus:ring text-gray-500 "
                             >
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"
@@ -48,7 +48,7 @@ function Nav() {
                             type="search"
                             name="Search"
                             placeholder="Search here..."
-                            className="font-sans w-full py-2 pl-14 text-sm rounded-full focus:outline-none bg-slate-200"
+                            className="font-sans w-full py-2 pl-14 text-md rounded-lg focus:outline-none bg-slate-50"
                         />
                     </div>
               {/* <div className="hidden md:block ml-64">

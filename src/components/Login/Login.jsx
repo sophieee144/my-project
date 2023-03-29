@@ -5,10 +5,28 @@ export default function Login() {
 
     return (
         <div className="relative flex flex-col justify-center min-h-screen overflow-hidden">
-            <div className="w-full p-6 m-auto bg-slate-200 rounded-md shadow-xl lg:max-w-xl">
-                <h1 className="text-3xl font-semibold text-center text-blue-700 uppercase">
+            <div className="w-full p-6 m-auto bg-slate-200 rounded-md shadow-xl lg:max-w-2xl">
+                <h1 className="text-4xl font-semibold text-left text-blue-700 pb-4">
                     Sign in
                 </h1>
+
+                <a href="/" className="mt-14 text-blue-600 hover:text-blue-600 transition duration-500">
+                                    <svg 
+                                        className=" w-6 h-6 inline-block align-bottom " 
+                                        fill="none" 
+                                        strokeLinecap="round" 
+                                        strokeLinejoin="round" 
+                                        strokeWidth="2" 
+                                        stroke="currentColor" 
+                                        viewBox="0 0 24 24"
+                                    >
+                                        <path 
+                                            d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6">
+                                        </path>
+                                    </svg>
+                                    Back to Home
+                                    <i className="fas fa-chevron-circle-left fa-fw"></i>
+                                </a>
                 <form className="mt-6">
                     <div className="mb-2">
                         <label
@@ -19,7 +37,7 @@ export default function Login() {
                         </label>
                         <input
                             type="email"
-                            className="block w-full px-4 py-2 mt-2 text-gray-800 bg-slate-50 border rounded-md focus:border-blue-600 focus:ring-blue-200 focus:outline-none focus:ring focus:ring-opacity-40"
+                            className="border-blue-200 block w-full px-4 py-2 mt-2 text-gray-800 bg-slate-50 border rounded-md focus:border-blue-600 focus:ring-blue-200 focus:outline-none focus:ring focus:ring-opacity-40"
                         />
                     </div>
                     <div className="mb-2">
@@ -31,7 +49,7 @@ export default function Login() {
                         </label>
                         <input
                             type="password"
-                            className="block w-full px-4 py-2 mt-2 text-gray-800 bg-slate-50 border rounded-md focus:border-blue-600 focus:ring-blue-200 focus:outline-none focus:ring focus:ring-opacity-40"
+                            className="border-blue-200 block w-full px-4 py-2 mt-2 text-gray-800 bg-slate-50 border rounded-md focus:border-blue-600 focus:ring-blue-200 focus:outline-none focus:ring focus:ring-opacity-40"
                         />
                     </div>
                     <a
@@ -41,11 +59,13 @@ export default function Login() {
                         Forget Password?
                     </a>
                    
-                    <Btnlogin>
-                        Login
-                    </Btnlogin>
+                    
                     
                 </form>
+                <hr/>
+                <Btnlogin>
+                    Login
+                </Btnlogin>
                 {/* <div className="relative flex items-center justify-center w-full mt-6 border border-t">
                     <div className="absolute px-5 bg-slate-50">Or</div>
                 </div>

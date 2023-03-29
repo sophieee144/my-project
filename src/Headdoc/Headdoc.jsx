@@ -6,8 +6,6 @@ import Sidebar from './Sidebar/Sidebar'
 const Headdoc = () => {
   return (
     <div>
-        <Nav />
-        <Sidebar />
         <Dashboard />
     </div>
   )
