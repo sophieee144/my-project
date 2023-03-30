@@ -54,7 +54,7 @@ const Dashboard = () => {
                                 Nurses
                             </div>
                         </div>
-                        <div className="w-full px-4 py-5 bg-white  rounded-md shadow">
+                        <div className="w-full px-4 py-5 bg-white rounded-md shadow">
                             <div className="mt-1 text-5xl text-center font-semibold text-slate-700">
                                 Total Orders
                             </div>
@@ -62,7 +62,7 @@ const Dashboard = () => {
                             20k
                             </ div>
                         </div>
-                        <div className="w-full px-4 py-5 bg-white  rounded-md shadow">
+                        <div className="w-full px-4 py-5 bg-white rounded-md shadow">
                             <div className="mt-1 text-5xl text-center font-semibold text-slate-700">
                                 Total Orders
                             </div>

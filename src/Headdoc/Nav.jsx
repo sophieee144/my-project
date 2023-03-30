@@ -37,34 +37,18 @@ function Nav() {
                 DETECT ++
               </span>
               
-              <div className="relative pl-24 w-96">
-                        <span className="absolute inset-y-0 left-0 flex items-center py-4 pl-28">
-                            <button
-                                type="submit"
-                                className="p-1 focus:outline-none focus:ring text-gray-500 "
-                            >
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    className="w-5 h-5 text-grey"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke="currentColor"
-                                    strokeWidth={2}
-                                >
-                                    <path
-                                        strokeLinecap="round"
-                                        strokeLinejoin="round"
-                                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-                                    />
-                                </svg>
-                            </button>
-                        </span>
-                        <input
-                            type="search"
-                            name="Search"
-                            placeholder="Search here..."
-                            className="font-sans w-full py-2 pl-14 text-md rounded-lg focus:outline-none bg-slate-50"
-                        />
+              <div className="relative pl-24">
+                <form className="w-full max-w-sm">
+                  <div className="flex items-center border-b border-teal-500 py-2">
+                    <input className="appearance-none bg-transparent border-none w-full text-gray-100 mr-3 py-1 px-2 leading-tight focus:outline-none" type="text" placeholder="Search here ..." aria-label="Search"/>
+                    <button className="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded" type="button">
+                      Search
+                    </button>
+                    <button className="flex-shrink-0 border-transparent border-4 text-teal-500 hover:text-teal-800 text-sm py-1 px-2 rounded" type="button">
+                      Cancel
+                    </button>
+                  </div>
+                </form>
               </div>
               <a
                 href="#"
@@ -72,7 +56,7 @@ function Nav() {
               >
                  <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="w-6 h-6 text-gray-100 absolute right-2"
+                    className="w-6 h-6 text-gray-100 absolute right-24"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -99,7 +83,7 @@ function Nav() {
                     fill="none" 
                     viewBox="0 0 24 24" 
                     stroke="currentColor" 
-                    className="w-6 h-6 text-gray-100 absolute right-10"
+                    className="w-6 h-6 text-gray-100 absolute right-32"
                     strokeWidth={2}
                 >
                   <path 
@@ -110,27 +94,21 @@ function Nav() {
                 </svg>
               </a>
 
-              <Popover open={openPopover} handler={setOpenPopover} className="ml-10">
+              <Popover open={openPopover} handler={setOpenPopover}>
                 <PopoverHandler {...triggers}>
-                  <Button variant="text">Profile Info</Button>
-                </PopoverHandler>
-                <PopoverContent {...triggers} className="max-w-[24rem]">
-                  <div className="mb-2 flex items-center justify-between gap-4">
+                  <Button variant="text">
                     <Avatar
-                      size="xxl"
+                      className="rounded-full"
                       width={56}
                       variant="circular"
                       src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80"
                       alt="candice wu"
                     />
-                    <Button
-                      variant="gradient"
-                      color="blue"
-                      size="md"
-                      className="font-medium capitalize"
-                    >
-                      Follow
-                    </Button>
+                  </Button>
+                </PopoverHandler>
+                <PopoverContent {...triggers} className="max-w-[18rem] max-h-[28rem]">
+                  <div className="mb-2 flex items-center justify-between gap-4">
+                    
                   </div>
                   <Typography
                     variant="h6"
@@ -172,6 +150,7 @@ function Nav() {
                   </div>
                 </PopoverContent>
               </Popover>
+   
               {/* <div className="hidden md:block ml-64">
                 <div className="ml-10 flex items-baseline space-x-4">
                   

@@ -6,7 +6,6 @@ import Nav from '../Nav'
 import Sidebar from '../Sidebar/Sidebar'
 
 const Manaccounts = () => {
-    const [show, setShow] = React.useState(true);
   return (
     <div className='bg-blue-50'>
         <div className="d-flex container-fluid flex-col fixed top-0 left-0 w-screen">
@@ -17,39 +16,30 @@ const Manaccounts = () => {
                 <Sidebar />
                 
                 <main className="flex-1 p-4 overflow-y-auto">
-                <h2 className="text-3xl font-medium font-bold text-slate-700 mb-2">
+                    <h2 className="text-3xl font-medium font-bold text-slate-700 mb-2">
                         Managa doctors accounts
                     </h2>
                     <div className="text-sm font-sans text-gray-500 mb-8">
-                        <Link to={"/hdoc"} className="underline">Home</Link>
-                        / Manage accounts / Doctors /
-                        <Link to={"/register"} className="underline">Create account</Link>
+                    <Link to={"/hdoc"} className="underline">Home</Link>
+                        /<Link to={"/hdoc"} className="underline">Manage Account</Link> / 
+                        <Link to={"/doc"} className="underline">Doctors</Link>
+                        /Create account
                     </div>
-                    {/* <h2 className="text-sm font-sans text-gray-500 mb-8">
-                        Home / Dashboard
-                    </h2> */}
-                    
                     <div className="grid grid-cols-1 mb-8 mx-4">
                         <div className="w-full px-5 py-3 bg-white rounded-md shadow">
-                            <React.Fragment>
-                            {!show && (
-                            <div onClick={() => setShow(true)}>
-                                <div className="text-2xl font-medium text-slate-800 truncate">
-                                    Doctors accounts
-                                </div> 
-                                <h2 className="text-sm font-sans text-gray-500 mb-4">
-                                    1.250 registered
-                                </h2>
-                            </div>)}
-                           <div className="relative flex flex-col justify-center overflow-hidden">
+                             {/* <div className="text-2xl font-medium text-slate-800 truncate">
+                                Doctors Accounts
+                            </div> 
+                            <h2 className="text-sm font-sans text-gray-500 mb-4">
+                                1.250 registered
+                            </h2> */}
+                            
+                            <div className="relative flex flex-col justify-center overflow-hidden">
                                 <div className="w-full p-6 mb-4 m-auto">
-                                {!show && (
-                            <div onClick={() => setShow(true)}>
                                     <h1 className="text-4xl font-semibold text-center text-blue-700 pb-4">
                                         Log in
                                     </h1>
                                     <div className="grid grid-cols-2 mb-6 mx-4 gap-12 py-8">
-                                       
                                         <div className="relative h-11 w-full min-w-[200px]">
                                             <input
                                             className="peer h-full w-full border-b border-blue-gray-200 bg-transparent pt-4 pb-1.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border-blue-gray-200 focus:border-indigo-500 focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
@@ -167,48 +157,8 @@ const Manaccounts = () => {
                                             </label>
                                         </div>
                                     </div>
-                                    </div>)}
-                                    
-                                    
-                                        {!show && (
-                                            // <Button
-                                            // color="green"
-                                            // className="bg-indigo-700 text-white py-2 px-6 rounded lg:ml-8 hover:bg-indigo-500 duration-500"
-                                            // onClick={() => setShow(true)}
-                                            // >
-                                            // Create account
-                                            // </Button>
-                                            <Link to={"/register"} className="cursor-pointer justify-end justify-left bg-indigo-700 text-white py-2 px-6 rounded hover:bg-indigo-500 duration-500"
-                                            onClick={() => setShow(true)}
-                                            >
-                                                Valider
-                                            </Link>
-                                        )}
-                                        <Alert
-                                            show={show}
-                                            color="green"
-                                            className="max-w-screen-md ml-24 text-gray-100 bg-green-500"
-                                            icon={<CheckCircleIcon className="mt-px h-6 w-6" />}
-                                            dismissible={{
-                                            onClose: () => setShow(false),
-                                            }}
-                                        >
-                                            <Typography variant="h5">
-                                            Success
-                                            </Typography>
-                                            <Typography className="mt-2 font-normal">
-                                            The account is added successfuly
-                                            </Typography>
-                                        </Alert>
-                                   
-                                    {/* <div className="cursor-pointer justify-end justify-left">
-                                        <Link to={"/register"} className="bg-indigo-700 text-white py-2 px-6 rounded lg:ml-8 hover:bg-indigo-500 duration-500">
-                                            Create account
-                                        </Link>
-                                    </div> */}
                                 </div>
                             </div>
-                            </React.Fragment>
                         </div>
                     </div>
                 </main>

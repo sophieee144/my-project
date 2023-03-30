@@ -12,7 +12,7 @@ const Btncompte = (props) => {
             {props.children}
         </a> */}
 
-        <Link to={"/registerdoc"} className="bg-indigo-700 text-white py-2 px-6 rounded lg:ml-8 hover:bg-indigo-500 duration-500">
+        <Link to={"/deletemodal"} className="bg-rose-500 text-white py-2 px-2 rounded hover:bg-rose-400 duration-500">
           {props.children}
         </Link>
         

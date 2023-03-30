@@ -111,7 +111,7 @@ const logi = () => {
                                     {/* <div className="mt-8">
                                         <p className="text-sm">
                                             no account
-                                            <a className="font-bold text-sm text-blue-500 hover:text-orange-800" href="#register">
+                                            <a className="font-bold text-sm text-blue-500 hover:text-orange-800" href="/registerdoc">
                                                 sign up
                                             </a>
                                         </p>

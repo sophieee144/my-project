@@ -58,7 +58,7 @@ export default class Example extends PureComponent {
         </div>
         <hr className='pb-4 border-indigo-100'/>
         <AreaChart
-          className='text-gray-800 font-mono'
+          className=' text-gray-800 font-mono'
           width={1050}
           height={400}
           data={data}
