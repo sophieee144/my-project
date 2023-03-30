@@ -75,12 +75,12 @@ export default function Sidebar() {
                                             d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"
                                         />
                                     </svg>
-                                    <span>Dashboard</span>
+                                    <span className="">Dashboard</span>
                                 </a>
                             </li>
                             <li>
                                 <Accordion open={open === 1} icon={<Icon id={1} open={open} />}>
-                                    <AccordionHeader onClick={() => handleOpen(1)} className="text-sm font-sans hover:bg-gray-700 hover:text-gray-100 pl-1.5 pt-0.5 pb-0.5 rounded-md">
+                                    <AccordionHeader onClick={() => handleOpen(1)} className="text-sm hover:bg-gray-700 hover:text-gray-100 pl-1.5 pt-0.5 pb-0.5 rounded-md">
                                     <a
                                         href="/manageaccount"
                                         className="flex items-center p-2 space-x-3 rounded-md"

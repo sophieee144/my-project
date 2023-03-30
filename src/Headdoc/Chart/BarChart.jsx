@@ -46,73 +46,36 @@ const data = [
   },
 ];
 
-const getIntroOfPage = (label) => {
-  if (label === 'Page A') {
-    return "Page A is about men's clothing";
-  }
-  if (label === 'Page B') {
-    return "Page B is about women's dress";
-  }
-  if (label === 'Page C') {
-    return "Page C is about women's bag";
-  }
-  if (label === 'Page D') {
-    return 'Page D is about household goods';
-  }
-  if (label === 'Page E') {
-    return 'Page E is about food';
-  }
-  if (label === 'Page F') {
-    return 'Page F is about baby food';
-  }
-  return '';
-};
-
-const CustomTooltip = ({ active, payload, label }) => {
-  if (active && payload && payload.length) {
-    return (
-      <div className="custom-tooltip">
-        <p className="label">{`${label} : ${payload[0].value}`}</p>
-        <p className="intro">{getIntroOfPage(label)}</p>
-        <p className="desc">Anything you want can be displayed here.</p>
-      </div>
-    );
-  }
-
-  return null;
-};
-
 export default class Example extends PureComponent {
-  static demoUrl = 'https://codesandbox.io/s/tooltip-with-customized-content-lyxvs';
+  static demoUrl = 'https://codesandbox.io/s/simple-bar-chart-tpz8r';
 
   render() {
     return (
       <ResponsiveContainer width="100%" height="100%">
-        <div className='grid bg-white pt-3 mx-4 rounded-md shadow'>
-          <div className="text-md font-medium text-slate-800 pl-4 pb-2">
-              Chart Bar
-          </div>
-          <hr className='pb-4 border-indigo-100'/>
-          <BarChart
-            className='flex flex-col-2'
-            width={500}
-            height={300}
-            data={data}
-            margin={{
-              top: 5,
-              right: 30,
-              left: 20,
-              bottom: 5,
-            }}
-            fill="#64b5f6"
-          >
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="name" />
-            <YAxis />
-            <Tooltip content={<CustomTooltip />} />
-            <Legend />
-            <Bar dataKey="pv" barSize={20} fill="#8884d8" />
-          </BarChart>
+      <div className='bg-white pt-3 mx-2 rounded-md shadow'>
+        <div className="text-md font-medium text-slate-800 pl-4 pb-2">
+            Chart Area
+        </div>
+        <hr className='pb-4 border-indigo-100'/>
+        <BarChart
+          width={500}
+          height={300}
+          data={data}
+          margin={{
+            top: 5,
+            right: 30,
+            left: 20,
+            bottom: 5,
+          }}
+        >
+          <CartesianGrid />
+          <XAxis dataKey="name" />
+          <YAxis />
+          <Tooltip />
+          <Legend />
+          <Bar dataKey="pv" fill="#115e59" fillOpacity={0.6} />
+          <Bar dataKey="uv" fill="#1e40af" fillOpacity={0.7} />
+        </BarChart>
         </div>
       </ResponsiveContainer>
     );
