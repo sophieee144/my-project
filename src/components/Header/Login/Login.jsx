@@ -1,5 +1,6 @@
 import React from 'react';
-import Btnlogin from './Btnlogin';
+import Btnlogin from './BtnLogin';
+import { Link } from 'react-router-dom';
 
 export default function Login() {
 
@@ -10,7 +11,7 @@ export default function Login() {
                     Sign in
                 </h1>
 
-                <a href="/" className="mt-14 text-blue-600 hover:text-blue-600 transition duration-500">
+                {/* <a href="/" className="mt-14 text-blue-600 hover:text-blue-600 transition duration-500">
                                     <svg 
                                         className=" w-6 h-6 inline-block align-bottom " 
                                         fill="none" 
@@ -26,7 +27,7 @@ export default function Login() {
                                     </svg>
                                     Back to Home
                                     <i className="fas fa-chevron-circle-left fa-fw"></i>
-                                </a>
+                                </a> */}
                 <form className="mt-6">
                     <div className="mb-2">
                         <label
@@ -52,17 +53,11 @@ export default function Login() {
                             className="border-blue-200 block w-full px-4 py-2 mt-2 text-gray-800 bg-slate-50 border rounded-md focus:border-blue-600 focus:ring-blue-200 focus:outline-none focus:ring focus:ring-opacity-40"
                         />
                     </div>
-                    <a
-                        href='/sidebar'
-                        className="text-xs text-blue-600 hover:underline"
-                    >
+                   <Link to={"/forgotpassword"} className="text-xs text-blue-600 hover:underline">
                         Forget Password?
-                    </a>
-                   
-                    
-                    
+                   </Link>  
                 </form>
-                <hr/>
+
                 <Btnlogin>
                     Login
                 </Btnlogin>

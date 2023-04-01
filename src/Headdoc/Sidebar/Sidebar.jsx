@@ -62,7 +62,7 @@ export default function Sidebar() {
                             <li>
                                 <Accordion open={open === 1} icon={<Icon id={1} open={open} />}>
                                     <AccordionHeader onClick={() => handleOpen(1)} className="text-sm hover:bg-gray-700 hover:text-gray-100 pl-1.5 pt-0.5 pb-0.5 rounded-md">
-                                        <Link to={"/hdoc"} className="flex items-center p-2 space-x-3 rounded-md">
+                                        <div className="flex items-center p-2 space-x-3 rounded-md">
                                             <svg 
                                                 xmlns="http://www.w3.org/2000/svg"
                                                 className="w-6 h-6" 
@@ -79,7 +79,7 @@ export default function Sidebar() {
                                             </svg>
 
                                             <span>Manage accounts</span> 
-                                        </Link>
+                                        </div>
                                     </AccordionHeader>
                                     <AccordionBody className="pl-12 space-y-2 font-sans text-md">
                                         <Link to={"/doc"} className="block text-gray-700 hover:text-indigo-500 hover:font-bold">

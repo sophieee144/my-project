@@ -11,6 +11,7 @@ import { MapPinIcon, BuildingOffice2Icon } from "@heroicons/react/24/outline";
  
 import { Transition } from "@headlessui/react";
 import { Link } from "react-router-dom";
+import femaledoctor from '../assets/femaledoctor.jpg'
 
 function Nav() {
   const [isOpen, setIsOpen] = useState(false);
@@ -50,7 +51,7 @@ function Nav() {
                   </div>
                 </form>
               </div>
-              <a
+              {/* <a
                 href="#"
                 className="flex items-center p-2 space-x-3 rounded-md"
               >
@@ -73,8 +74,8 @@ function Nav() {
                     d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
                     />
                  </svg>
-              </a>
-              <a
+              </a> */}
+              {/* <a
                 href="#"
                 className="flex items-center p-2 space-x-3 rounded-md"
               >
@@ -92,17 +93,17 @@ function Nav() {
                       d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" 
                   />
                 </svg>
-              </a>
+              </a> */}
 
               <Popover open={openPopover} handler={setOpenPopover}>
                 <PopoverHandler {...triggers}>
-                  <Button variant="text">
+                  <Button variant="text" className="absotlute inset-y-0 ">
                     <Avatar
                       className="rounded-full"
                       width={56}
                       variant="circular"
-                      src="https://images.unsplash.com/photo-1633332755192-727a05c4013d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1480&q=80"
-                      alt="candice wu"
+                      src={femaledoctor} 
+                      alt="Example Image" 
                     />
                   </Button>
                 </PopoverHandler>
@@ -115,9 +116,9 @@ function Nav() {
                     color="blue-gray"
                     className="mb-2 flex items-center gap-2 font-medium"
                   >
-                    <span>Candice Wu</span> •{" "}
+                    <span>Sandy bell</span> •{" "}
                     <a href="#" className="text-sm text-blue-gray-700">
-                      @canwu
+                      @sophie
                     </a>
                   </Typography>
                   <Typography variant="small" color="gray" className="font-normal">
@@ -132,7 +133,7 @@ function Nav() {
                       className="flex items-center gap-1 text-xs font-normal"
                     >
                       <MapPinIcon strokeWidth={2} className="-mt-0.5 h-3.5 w-3.5" />
-                      United Kingdom
+                      Algeria la3ina
                     </Typography>
                     <Typography
                       as="a"
@@ -151,31 +152,6 @@ function Nav() {
                 </PopoverContent>
               </Popover>
    
-              {/* <div className="hidden md:block ml-64">
-                <div className="ml-10 flex items-baseline space-x-4">
-                  
-                  <Link to={"/"} className=" hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium">
-                    Home
-                  </Link>
-                 
-                  <Link to={"/calendar"} className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
-                    Calendar
-                  </Link>
-
-                  <Link to={"/reports"} className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
-                    Reports
-                  </Link>
-
-                  <Link to={"/contact"} className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
-                    Contact
-                  </Link>
-
-                  <Link to={"/about"} className="text-gray-300 hover:bg-gray-700 hover:text-white px-3 py-2 rounded-md text-sm font-medium">
-                    About
-                  </Link>
-
-                </div>
-              </div> */}
             </div>
             {/* <div className="-mr-2 flex md:hidden">
               <button

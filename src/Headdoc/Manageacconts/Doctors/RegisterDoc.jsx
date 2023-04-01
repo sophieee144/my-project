@@ -1,11 +1,20 @@
 import React from "react";
 import { Link } from 'react-router-dom'
-import { Alert, Button, Typography } from "@material-tailwind/react";
-import { CheckCircleIcon } from "@heroicons/react/24/solid";
-import Nav from '../Nav'
-import Sidebar from '../Sidebar/Sidebar'
+import Nav from '../../Nav'
+import Sidebar from '../../Sidebar/Sidebar'
+import {useState} from "react";
+import Datepicker from "react-tailwindcss-datepicker";
 
 const Manaccounts = () => {
+    const [value, setValue] = useState({
+        startDate: new Date(),
+        endDate: new Date().setMonth(11)
+    });
+    
+    const handleValueChange = (newValue) => {
+        console.log("newValue:", newValue);
+        setValue(newValue);
+    }
   return (
     <div className='bg-blue-50'>
         <div className="d-flex container-fluid flex-col fixed top-0 left-0 w-screen">
@@ -17,7 +26,7 @@ const Manaccounts = () => {
                 
                 <main className="flex-1 p-4 overflow-y-auto">
                     <h2 className="text-3xl font-medium font-bold text-slate-700 mb-2">
-                        Managa doctors accounts
+                        Manage doctors accounts
                     </h2>
                     <div className="text-sm font-sans text-gray-500 mb-8">
                     <Link to={"/hdoc"} className="underline">Home</Link>
@@ -59,12 +68,28 @@ const Manaccounts = () => {
                                             </label>
                                         </div>
                                         <div className="relative h-11 w-full min-w-[200px]">
+                                        <Datepicker
+                                            value={value}
+                                            onChange={handleValueChange}
+                                        >
+                                            <input
+                                                className="peer h-full w-full border-b border-blue-gray-200 bg-transparent pt-4 pb-1.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border-blue-gray-200 focus:border-indigo-500 focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
+                                                placeholder=" "
+                                            />
+                                            <label 
+                                                htmlFor="floatingInput"
+                                                className="after:content[' '] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-blue-gray-500 transition-all after:absolute after:-bottom-1.5 after:block after:w-full after:scale-x-0 after:border-b-2 after:border-indigo-500 after:transition-transform after:duration-300 peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[4.25] peer-placeholder-shown:text-blue-gray-500 peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-indigo-900 peer-focus:after:scale-x-100 peer-focus:after:border-indigo-500 peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
+                                                Birth day
+                                            </label>
+                                        </Datepicker>
+                                        </div>
+                                        <div className="relative h-11 w-full min-w-[200px]">
                                             <input
                                             className="peer h-full w-full border-b border-blue-gray-200 bg-transparent pt-4 pb-1.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border-blue-gray-200 focus:border-indigo-500 focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
                                             placeholder=" "
                                             />
                                             <label className="after:content[' '] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-blue-gray-500 transition-all after:absolute after:-bottom-1.5 after:block after:w-full after:scale-x-0 after:border-b-2 after:border-indigo-500 after:transition-transform after:duration-300 peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[4.25] peer-placeholder-shown:text-blue-gray-500 peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-indigo-900 peer-focus:after:scale-x-100 peer-focus:after:border-indigo-500 peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
-                                            Birth day
+                                                Phone
                                             </label>
                                         </div>
                                         <div className="relative h-11 w-full min-w-[200px]">
@@ -73,16 +98,7 @@ const Manaccounts = () => {
                                             placeholder=" "
                                             />
                                             <label className="after:content[' '] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-blue-gray-500 transition-all after:absolute after:-bottom-1.5 after:block after:w-full after:scale-x-0 after:border-b-2 after:border-indigo-500 after:transition-transform after:duration-300 peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[4.25] peer-placeholder-shown:text-blue-gray-500 peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-indigo-900 peer-focus:after:scale-x-100 peer-focus:after:border-indigo-500 peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
-                                            Phone
-                                            </label>
-                                        </div>
-                                        <div className="relative h-11 w-full min-w-[200px]">
-                                            <input
-                                            className="peer h-full w-full border-b border-blue-gray-200 bg-transparent pt-4 pb-1.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border-blue-gray-200 focus:border-indigo-500 focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
-                                            placeholder=" "
-                                            />
-                                            <label className="after:content[' '] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-blue-gray-500 transition-all after:absolute after:-bottom-1.5 after:block after:w-full after:scale-x-0 after:border-b-2 after:border-indigo-500 after:transition-transform after:duration-300 peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[4.25] peer-placeholder-shown:text-blue-gray-500 peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-indigo-900 peer-focus:after:scale-x-100 peer-focus:after:border-indigo-500 peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
-                                            Email
+                                                Email
                                             </label>
                                         </div>
                                         <div className="flex gap-10">

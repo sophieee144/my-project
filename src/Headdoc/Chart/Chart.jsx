@@ -6,7 +6,7 @@ import BarChart from './BarChart'
 import LineChart from './LineChart'
 import PieChart from './PieChart'
 import AreaChart from './Areachart'
-import RadarChart from './Radarchart'
+import DoughnutChart from './DoughnutChart'
 
 
 const Chart = () => {
@@ -36,11 +36,11 @@ const Chart = () => {
                     <div className='grid grid-cols-1 mb-3 gap-3'>
                         < AreaChart />
                     </div>
-                    <div className='grid grid-cols-2 mb-10 gap-3'>
-                        < LineChart />
+                    <div className='grid grid-cols-2 mb-20 gap-2 space-y-'>
                         < BarChart />
                         < PieChart />
-                        < RadarChart />
+                        < LineChart />
+                        < DoughnutChart />
                     </div>
                     
                 </main>

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Transition } from "@headlessui/react";
-import Btnsign from "../Btnsign";
+import Btnsign from "../BtnSign";
 import { Link } from "react-router-dom";
 
 function Navbar() {
@@ -26,7 +26,7 @@ function Navbar() {
                 DETECT ++
               </span>
               <div className="hidden md:block ml-48">
-                <div className="flex items-baseline space-x-4">
+                <div className="flex space-x-4">
                   
                   <Link to={"/"} className=" hover:bg-gray-700 text-white px-3 py-2 rounded-md text-sm font-medium">
                     Home
