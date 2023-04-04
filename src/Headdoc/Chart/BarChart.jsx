@@ -1,83 +1,73 @@
-import React, { PureComponent } from 'react';
-import { BarChart, Bar, Cell, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import React from 'react';
+import ApexCharts from 'react-apexcharts';
 
-const data = [
-  {
-    name: 'Page A',
-    uv: 4000,
-    pv: 2400,
-    amt: 2400,
-  },
-  {
-    name: 'Page B',
-    uv: 3000,
-    pv: 1398,
-    amt: 2210,
-  },
-  {
-    name: 'Page C',
-    uv: 2000,
-    pv: 9800,
-    amt: 2290,
-  },
-  {
-    name: 'Page D',
-    uv: 2780,
-    pv: 3908,
-    amt: 2000,
-  },
-  {
-    name: 'Page E',
-    uv: 1890,
-    pv: 4800,
-    amt: 2181,
-  },
-  {
-    name: 'Page F',
-    uv: 2390,
-    pv: 3800,
-    amt: 2500,
-  },
-  {
-    name: 'Page G',
-    uv: 3490,
-    pv: 4300,
-    amt: 2100,
-  },
-];
+class Chart extends React.Component {
+  constructor(props) {
+    super(props);
 
-export default class Example extends PureComponent {
-  static demoUrl = 'https://codesandbox.io/s/simple-bar-chart-tpz8r';
+    this.state = {
+      options: {
+        series: [{
+          name: 'Net Profit',
+          data: [44, 55, 57, 56, 61, 58, 63, 60, 66]
+        }, {
+          name: 'Revenue',
+          data: [76, 85, 101, 98, 87, 105, 91, 114, 94]
+        }, {
+          name: 'Free Cash Flow',
+          data: [35, 41, 36, 26, 45, 48, 52, 53, 41]
+        }],
+        chart: {
+          type: 'bar',
+          height: 350
+        },
+        plotOptions: {
+          bar: {
+            horizontal: false,
+            columnWidth: '55%',
+            endingShape: 'rounded'
+          },
+        },
+        dataLabels: {
+          enabled: false
+        },
+        stroke: {
+          show: true,
+          width: 2,
+          colors: ['transparent']
+        },
+        xaxis: {
+          categories: ['Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct'],
+        },
+    
+        fill: {
+          opacity: 1
+        },
+        tooltip: {
+          y: {
+            formatter: function (val) {
+              return "$ " + val + " thousands"
+            }
+          }
+        },
+        legend: {
+          show: false
+        },
+      },
+    };
+  }
 
   render() {
     return (
-      <ResponsiveContainer width="100%" height="100%">
-      <div className='bg-white pt-3 mx-2 rounded-md shadow'>
-        <div className="text-md font-medium text-slate-800 pl-4 pb-2">
-            Chart Area
+      <div id="chart" className='bg-white pt-3 mx-2 rounded-md shadow'>
+        <div className="text-md font-medium text-slate-800 ml-3 pb-2">
+          Bar Chart
         </div>
-        <hr className='pb-4 border-indigo-100'/>
-        <BarChart
-          width={500}
-          height={300}
-          data={data}
-          margin={{
-            top: 5,
-            right: 30,
-            left: 20,
-            bottom: 5,
-          }}
-        >
-          <CartesianGrid />
-          <XAxis dataKey="name" />
-          <YAxis />
-          <Tooltip />
-          <Legend />
-          <Bar dataKey="pv" fill="#115e59" fillOpacity={0.6} />
-          <Bar dataKey="uv" fill="#1e40af" fillOpacity={0.7} />
-        </BarChart>
-        </div>
-      </ResponsiveContainer>
+        <hr className='pb-4 border-blue-800'/>
+        <ApexCharts options={this.state.options} series={this.state.options.series} type="bar" height={350} />
+      </div>
     );
   }
 }
+
+export default Chart;

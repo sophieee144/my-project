@@ -7,35 +7,35 @@ export default class ApexChart extends React.Component {
     super(props);
 
     this.state = {
-      series: [25, 15, 44, 31, 56],
+      series: [25, 15, 44, 55, 41],
       options: {
         chart: {
           width: '100%',
-          type: 'pie',
+          type: 'donut',
         },
         labels: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-        colors: ['#fff7ed', '#ffedd5', '#fdba74', '#f97316', '#c2410c'],
+        colors: ['#ecfeff', '#a5f3fc', '#67e8f9', '#0891b2', '#155e75'],
         fill: {
           opacity: 0.8
         },
-        plotOptions: {
-          pie: {
-            dataLabels: {
-              offset: -5
-            }
-          }
-        },
-        
         dataLabels: {
           formatter(val, opts) {
             const name = opts.w.globals.labels[opts.seriesIndex]
             return [name, val.toFixed(1) + '%']
           }
         },
+      },
+      responsive: [{
+          breakpoint: 480,
+          options: {
+            chart: {
+              width: 200
+            },
+          }
+        }],
         legend: {
           show: false
         }
-      },
     };
   }
 
@@ -43,10 +43,10 @@ export default class ApexChart extends React.Component {
     return (
         <div id="chart" className='bg-white pt-3 mx-2 rounded-md shadow'>
               <div className="text-md font-medium text-slate-800 pl-4 pb-2">
-                  Pie Chart
+                  Doughnut Chart
               </div>
               <hr className='pb-4 border-blue-800'/>
-        <ReactApexChart options={this.state.options} series={this.state.series} type="pie" />
+        <ReactApexChart options={this.state.options} series={this.state.series} type="donut" />
       </div>
     );
   }

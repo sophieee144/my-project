@@ -5,7 +5,7 @@ import Login from './components/Header/Login/Login';
 import DoctorAccount from './Headdoc/Manageacconts/Doctors/DoctorAccount';
 import RegisterDoc from './Headdoc/Manageacconts/Doctors/RegisterDoc';
 import Patientdata from './Headdoc/PatientData/PatientData'
-import Chart from './Headdoc/Chart/Chart'
+import Chart from './Headdoc/Chart/Charts'
 import DocInfo from './Headdoc/Manageacconts/Doctors/DocInfo'
 import ForgotPassword from './components/Header/Login/ForgotPassword'
 import EditInfo from './Headdoc/Manageacconts/Doctors/EditInfo';

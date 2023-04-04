@@ -12,6 +12,7 @@ import { MapPinIcon, BuildingOffice2Icon } from "@heroicons/react/24/outline";
 import { Transition } from "@headlessui/react";
 import { Link } from "react-router-dom";
 import femaledoctor from '../assets/femaledoctor.jpg'
+import SearchComponent from "./Search";
 
 function Nav() {
   const [isOpen, setIsOpen] = useState(false);
@@ -23,8 +24,8 @@ function Nav() {
   return (
     <div>
       <nav className="bg-gray-800 ">
-        <div className="max-w-7xl">
-          <div className="flex items-center justify-between h-16">
+        <div className="max-w-full">
+          <div className="flex justify-between h-16">
             <div className="flex items-center">
               <div className="flex-shrink-0 ml-4">
                 <img
@@ -34,11 +35,11 @@ function Nav() {
                 />
                 
               </div>
-              <span className="self-center text-2xl font-semibold pl-3 dark:text-white">
+              <span className="text-2xl font-semibold pl-3 dark:text-white">
                 DETECT ++
               </span>
               
-              <div className="relative pl-24">
+              {/* <div className="relative pl-24">
                 <form className="w-full max-w-sm">
                   <div className="flex items-center border-b border-teal-500 py-2">
                     <input className="appearance-none bg-transparent border-none w-full text-gray-100 mr-3 py-1 px-2 leading-tight focus:outline-none" type="text" placeholder="Search here ..." aria-label="Search"/>
@@ -50,14 +51,15 @@ function Nav() {
                     </button>
                   </div>
                 </form>
-              </div>
-              {/* <a
+              </div> */}
+              <SearchComponent />
+              <a
                 href="#"
-                className="flex items-center p-2 space-x-3 rounded-md"
+                className="flex justify-end items-center rounded-md"
               >
                  <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="w-6 h-6 text-gray-100 absolute right-24"
+                    className="w-6 h-6 text-gray-100"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -74,17 +76,17 @@ function Nav() {
                     d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
                     />
                  </svg>
-              </a> */}
-              {/* <a
+              </a>
+              <a
                 href="#"
-                className="flex items-center p-2 space-x-3 rounded-md"
+                className="flex items-center rounded-md"
               >
                 <svg 
                     xmlns="http://www.w3.org/2000/svg" 
                     fill="none" 
                     viewBox="0 0 24 24" 
                     stroke="currentColor" 
-                    className="w-6 h-6 text-gray-100 absolute right-32"
+                    className="w-6 h-6 text-gray-100"
                     strokeWidth={2}
                 >
                   <path 
@@ -93,11 +95,10 @@ function Nav() {
                       d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" 
                   />
                 </svg>
-              </a> */}
-
+              </a>
               <Popover open={openPopover} handler={setOpenPopover}>
                 <PopoverHandler {...triggers}>
-                  <Button variant="text" className="absotlute inset-y-0 ">
+                  <Button variant="text">
                     <Avatar
                       className="rounded-full"
                       width={56}
@@ -108,9 +109,6 @@ function Nav() {
                   </Button>
                 </PopoverHandler>
                 <PopoverContent {...triggers} className="max-w-[18rem] max-h-[28rem]">
-                  <div className="mb-2 flex items-center justify-between gap-4">
-                    
-                  </div>
                   <Typography
                     variant="h6"
                     color="blue-gray"

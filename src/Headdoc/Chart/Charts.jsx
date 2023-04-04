@@ -5,8 +5,9 @@ import Sidebar from '../Sidebar/Sidebar'
 import BarChart from './BarChart'
 import LineChart from './LineChart'
 import PieChart from './PieChart'
-import AreaChart from './Areachart'
-import DoughnutChart from './DoughnutChart'
+import DoughnutChart from './DonutChart'
+import AreaChart from './AreaChart'
+import DonutChart from './DonutChart'
 
 
 const Chart = () => {
@@ -34,13 +35,14 @@ const Chart = () => {
                         Home / Dashboard
                     </h2> */}
                     <div className='grid grid-cols-1 mb-3 gap-3'>
-                        < AreaChart />
+                        <AreaChart />  
                     </div>
                     <div className='grid grid-cols-2 mb-20 gap-2 space-y-'>
-                        < BarChart />
                         < PieChart />
+                        < BarChart />
                         < LineChart />
-                        < DoughnutChart />
+                        < DonutChart />
+                        
                     </div>
                     
                 </main>

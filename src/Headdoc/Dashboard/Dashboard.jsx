@@ -2,6 +2,9 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Nav from '../Nav'
 import Sidebar from '../Sidebar/Sidebar'
+import Chart from './Table';
+import LineChart from './Sparkline'
+import Line from './Sparkbar'
 
 const Dashboard = () => {
   return (
@@ -24,104 +27,93 @@ const Dashboard = () => {
                     {/* <h2 className="text-sm font-sans text-gray-500 mb-8">
                         Home / Dashboard
                     </h2> */}
-                    <div className="grid grid-cols-2 mb-6 mx-4 gap-6 py-8">
-                        <div className="w-full px-4 py-5 bg-white rounded-md shadow flex items-center justify">
-                            <svg 
-                                xmlns="http://www.w3.org/2000/svg" 
-                                fill="none" 
-                                viewBox="0 0 24 24" 
-                                strokeWidth="1.5" 
-                                stroke="currentColor" 
-                                className="w-20 h- text-sky-500 ml-20">
-                                <path 
-                                    strokeLinecap="round" 
-                                    strokeLinejoin="round" 
-                                    d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z" 
-                                />
-                            </svg>
-                            <div className="mt-1 text-5xl text-center font-semibold text-slate-700">
-                                520
+                    <div className="grid grid-rows-5 grid-flow-col pr-4 gap-3">
+                        <div className="row-span-3 col-span-3 w-full px-4 py-5 mx-3 bg-white rounded-md shadow">
+                            <div className="inline text-xl font-sans text-center text-slate-800">
+                                Today's deaths 
                             </div>
-                            <div className="text-lg font-medium text-center text-gray-400 truncate">
-                                Doctors
+                            <div className="inline text-xl font-medium pl-48 text-indigo-600">
+                                $ 125,490 
+                            </div>
+                            <div className="text-sm font-sans text-left pt-2 text-gray-400 truncate">
+                                January - July 2022
                             </div>
                         </div>
-                        <div className="w-full px-4 py-5 bg-white rounded-md shadow">
-                            <div className="mt-1 text-5xl text-center font-semibold text-slate-700">
-                                6789
+                        <div className="col-span-1 row-span-2 w-full px-4 py-5 mx-3 bg-gradient-to-r from-indigo-400 via-indigo-600 to-indigo-700 rounded-md shadow">
+                            <div className="text-3xl font-sans font-bold text-left text-slate-200 truncate">
+                                $ 240
                             </div>
-                            <div className="text-lg font-medium text-center text-gray-400 truncate">
-                                Nurses
+                            <div className="text-lg font-medium text-left text-gray-100 truncate">
+                                This week death's
                             </div>
+                            <LineChart />
                         </div>
-                        <div className="w-full px-4 py-5 bg-white rounded-md shadow">
-                            <div className="mt-1 text-5xl text-center font-semibold text-slate-700">
-                                Total Orders
+                        <div className="col-span-2 row-span-2 w-full px-4 py-5 mx-3 bg-gradient-to-r from-red-400 via-red-600 to-red-700 rounded-md shadow">
+                            <div className="text-3xl font-sans font-bold text-center text-slate-200 truncate">
+                                $ 240
                             </div>
-                            <div className="text-lg font-medium text-center text-gray-400 truncate">
-                            20k
-                            </ div>
+                            <div className="text-lg font-medium text-center text-gray-100 truncate">
+                                This week death's
+                            </div>
+                            <LineChart />
                         </div>
-                        <div className="w-full px-4 py-5 bg-white rounded-md shadow">
-                            <div className="mt-1 text-5xl text-center font-semibold text-slate-700">
-                                Total Orders
+                        <div className="row-span-5 w-full px-4 py-5 mx-3 bg-white rounded-md shadow">
+                            <div className="text-3xl font-sans font-bold text-center text-slate-700 truncate">
+                                $ 1,400
                             </div>
                             <div className="text-lg font-medium text-center text-gray-400 truncate">
-                            20k
-                            </ div>
+                                This month death's
+                            </div>
+                            <Chart />
                         </div>
                     </div>
-                    <div className="grid mb-6 px-4">
-                        <div className="w-full px-5 py-3 ml-4 bg-white rounded-md shadow">
-                            <div className="text-2xl font-medium text-slate-800 truncate">
-                                Patient
+                    <div className="grid grid-rows-5 grid-flow-col mt-3 gap-3">
+                        <div className="row-span-1 w-full px-4 py-5 mx-3 bg-white rounded-md shadow">
+                            <div className="inline text-xl font-sans text-center text-slate-800">
+                                Hospital survey
                             </div>
-                            <h2 className="text-sm font-sans text-gray-500 mb-4">
-                            1.232.150 registered users
-                            </h2>
-                            <hr className='my-6 border-gray-200 sm:mx-auto dark:border-gray-300 lg:my-6'/>
-                            <div className="flex flex-col">
-                                <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
-                                    <div className="inline-block min-w-full py-2 sm:px-6 lg:px-8">
-                                    <div className="overflow-hidden">
-                                        <table className="min-w-full text-left text-sm font-light">
-                                        <thead className="border-b bg-neutral-800 font-medium text-white dark:border-neutral-300 dark:bg-blue-500">
-                                            <tr>
-                                            <th scope="col" className="px-6 py-4">id</th>
-                                            <th scope="col" className="px-6 py-4">First</th>
-                                            <th scope="col" className="px-6 py-4">Last</th>
-                                            <th scope="col" className="px-6 py-4">Handle</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                            <tr className="border-b dark:border-neutral-500">
-                                            <td className="whitespace-nowrap px-6 py-4 font-medium">1</td>
-                                            <td className="whitespace-nowrap px-6 py-4">Mark</td>
-                                            <td className="whitespace-nowrap px-6 py-4">Otto</td>
-                                            <td className="whitespace-nowrap px-6 py-4">@mdo</td>
-                                            </tr>
-                                            <tr className="border-b dark:border-neutral-500">
-                                            <td className="whitespace-nowrap px-6 py-4 font-medium">2</td>
-                                            <td className="whitespace-nowrap px-6 py-4">Jacob</td>
-                                            <td className="whitespace-nowrap px-6 py-4">Thornton</td>
-                                            <td className="whitespace-nowrap px-6 py-4">@fat</td>
-                                            </tr>
-                                            <tr className="border-b dark:border-neutral-500">
-                                            <td className="whitespace-nowrap px-6 py-4 font-medium">3</td>
-                                            <td className="whitespace-nowrap px-6 py-4">Larry</td>
-                                            <td className="whitespace-nowrap px-6 py-4">Wild</td>
-                                            <td className="whitespace-nowrap px-6 py-4">@twitter</td>
-                                            </tr>
-                                        </tbody>
-                                        </table>
-                                        </div>
-                                    </div>
-                                </div>
+                            <Line />
+                        </div>
+                        <div className="row-span-1 col-span-5 w-full px-4  py-5 mx-3 bg-white rounded-md shadow">
+                            <div className="text-md font-sans text-left text-slate-700">
+                                <table className="table-auto w-full h-full">
+                                    <thead className='border-collapse border border-slate-500 bg-red-600'>
+                                        <tr>
+                                        <th>Song</th>
+                                        <th>Artist</th>
+                                        <th>Year</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                        <td>The Sliding Mr. Bones (Next Stop, Pottersville)</td>
+                                        <td>Malcolm Lockyer</td>
+                                        <td>1961</td>
+                                        </tr>
+                                        <tr>
+                                        <td>Witchy Woman</td>
+                                        <td>The Eagles</td>
+                                        <td>1972</td>
+                                        </tr>
+                                        <tr>
+                                        <td>Shining Star</td>
+                                        <td>Earth, Wind, and Fire</td>
+                                        <td>1975</td>
+                                        </tr>
+                                        <tr>
+                                        <td>Shining Star</td>
+                                        <td>Earth, Wind, and Fire</td>
+                                        <td>1975</td>
+                                        </tr>
+                                        
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
                     </div>
                 </main>
             </div>
+           
         </div>
     </div>
   )
