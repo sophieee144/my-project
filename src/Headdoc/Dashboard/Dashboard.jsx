@@ -2,9 +2,10 @@ import React from 'react'
 import { Link } from 'react-router-dom'
 import Nav from '../Nav'
 import Sidebar from '../Sidebar/Sidebar'
-import Chart from './Table';
+import Chart from './DashboardChart';
 import LineChart from './Sparkline'
 import Line from './Sparkbar'
+import Table from '../Table';
 
 const Dashboard = () => {
   return (
@@ -67,47 +68,36 @@ const Dashboard = () => {
                             <Chart />
                         </div>
                     </div>
-                    <div className="grid grid-rows-5 grid-flow-col mt-3 gap-3">
-                        <div className="row-span-1 w-full px-4 py-5 mx-3 bg-white rounded-md shadow">
+                    <div className="grid grid-cols mt-3 pr-3 gap-3">
+                        <div className="col-span-2 w-full px-4 py-5 mx-3 bg-white rounded-md shadow">
                             <div className="inline text-xl font-sans text-center text-slate-800">
                                 Hospital survey
                             </div>
                             <Line />
                         </div>
-                        <div className="row-span-1 col-span-5 w-full px-4  py-5 mx-3 bg-white rounded-md shadow">
-                            <div className="text-md font-sans text-left text-slate-700">
-                                <table className="table-auto w-full h-full">
-                                    <thead className='border-collapse border border-slate-500 bg-red-600'>
-                                        <tr>
-                                        <th>Song</th>
-                                        <th>Artist</th>
-                                        <th>Year</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                        <td>The Sliding Mr. Bones (Next Stop, Pottersville)</td>
-                                        <td>Malcolm Lockyer</td>
-                                        <td>1961</td>
-                                        </tr>
-                                        <tr>
-                                        <td>Witchy Woman</td>
-                                        <td>The Eagles</td>
-                                        <td>1972</td>
-                                        </tr>
-                                        <tr>
-                                        <td>Shining Star</td>
-                                        <td>Earth, Wind, and Fire</td>
-                                        <td>1975</td>
-                                        </tr>
-                                        <tr>
-                                        <td>Shining Star</td>
-                                        <td>Earth, Wind, and Fire</td>
-                                        <td>1975</td>
-                                        </tr>
-                                        
-                                    </tbody>
-                                </table>
+                    </div>
+                    <div className="grid grid-rows-6 grid-flow-col pr-4 mt-3 mb-6 gap-3">
+                        <div className="row-span-6 w-full px-4 py-5 mx-3 bg-white rounded-md shadow">
+                            <div className="inline text-xl font-sans text-center text-slate-800">
+                                Patient table
+                            </div>
+                            <hr className='my-4 mx-4 border-slate-200'/>
+                            <Table />
+                        </div>
+                        <div className="row-span-3 col-span-3 w-full px-4 py-5 mx-3 bg-white rounded-md shadow">
+                            <div className="text-3xl font-sans font-bold text-left text-slate-200 truncate">
+                                $ 240
+                            </div>
+                            <div className="text-lg font-medium text-left text-gray-100 truncate">
+                                This week death's
+                            </div>
+                        </div>
+                        <div className="row-span-3 col-span-3 w-full px-4 py-5 mx-3 bg-white rounded-md shadow">
+                            <div className="text-3xl font-sans font-bold text-center text-slate-700 truncate">
+                                $ 1,400
+                            </div>
+                            <div className="text-lg font-medium text-center text-gray-400 truncate">
+                                This month death's
                             </div>
                         </div>
                     </div>
