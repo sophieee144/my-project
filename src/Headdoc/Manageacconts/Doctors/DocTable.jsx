@@ -1,7 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Fragment, useRef, useState } from 'react'
+import Delete from "../../Delete";
 
-export default function Table() {
+export default function DocTable() {
+    const [open, setOpen] = useState(false)
+
+    const cancelButtonRef = useRef(null)
     return (
         <div className="flex flex-col">
             <div className="overflow-x-auto">
@@ -14,7 +19,7 @@ export default function Table() {
                             type="text"
                             name="hs-table-search"
                             id="hs-table-search"
-                            className="block w-full p-2 pl-10 ring-offset-2 ring-1 text-sm border-gray-200 rounded-md bg-slate-50 focus:outline-none focus:ring "
+                            className="block w-full p-2 pl-10 text-sm border-gray-200 rounded-md bg-slate-50 "
                             placeholder="Search here . . ."
                         />
                         <div className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
@@ -134,13 +139,13 @@ export default function Table() {
                                         0854432343
                                     </td>
                                     <td className="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
-                                        <Link className="text-green-500 hover:text-green-700"> Edit</Link>
+                                        <Link to={"/editinfo"} className="text-green-500 hover:text-green-700"> Edit</Link>
                                     </td>
                                     <td className="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
-                                        <Link className="text-red-500 hover:text-red-700"> Delete</Link>
+                                        <button onClick={() => setOpen(true)} ref={cancelButtonRef} className="text-red-500 hover:text-red-700"> Delete</button>
                                     </td>
                                     <td className="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
-                                        <Link className="flex flex-row-reverse text-blue-500 hover:text-blue-700">
+                                        <Link to={"/docinformation"} className="flex flex-row-reverse text-blue-500 hover:text-blue-700">
                                            
                                             <svg 
                                                 xmlns="http://www.w3.org/2000/svg" 
@@ -216,6 +221,9 @@ export default function Table() {
                     </div>
                 </div>
             </div>
+            {open && (
+                        <Delete />
+                     )}
         </div>
     );
 }

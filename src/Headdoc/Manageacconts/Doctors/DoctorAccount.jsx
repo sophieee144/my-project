@@ -8,6 +8,8 @@ import { Dialog, Transition } from '@headlessui/react'
 import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
 import { Tooltip, Button } from "@material-tailwind/react";
 import { Select, Option } from "@material-tailwind/react";
+import Table from '../../../Trash/Table'
+import DocTable from './DocTable'
  
 
 const Manaccounts = () => {
@@ -35,7 +37,7 @@ const Manaccounts = () => {
                     {/* <h2 className="text-sm font-sans text-gray-500 mb-8">
                         Home / Dashboard
                     </h2> */}
-                     <Fragment>
+                    <Fragment>
                     <div className="grid grid-cols-1 mb-8 mx-4">
                         <div className="w-full px-5 py-3 bg-white rounded-md shadow">
                             <div className="text-2xl font-medium text-slate-800 truncate">
@@ -45,25 +47,19 @@ const Manaccounts = () => {
                                 1.250 registered
                             </h2>
                             <Btncompte>Create account</Btncompte>
-                            <div className="w-60 mt-8">
-                                <Select
-                                    label="Search by section"
-                                    animate={{
-                                    mount: { y: 0 },
-                                    unmount: { y: 25 },
-                                    }}
-                                   className='rounded-md hover:border-indigo-600'
-                                >
-                                    <Option>Material Tailwind HTML</Option>
-                                    <Option>Material Tailwind React</Option>
-                                    <Option>Material Tailwind Vue</Option>
-                                    <Option>Material Tailwind Angular</Option>
-                                    <Option>Material Tailwind Svelte</Option>
-                                </Select>
-                            </div>
+                            <div className="w-72 mt-6">
+      <Select label="Select Version">
+        <Option>Material Tailwind HTML</Option>
+        <Option>Material Tailwind React</Option>
+        <Option>Material Tailwind Vue</Option>
+        <Option>Material Tailwind Angular</Option>
+        <Option>Material Tailwind Svelte</Option>
+      </Select>
+    </div>
                             <hr className='my-6 border-gray-200 sm:mx-auto dark:border-gray-300'/>
                             <div className="flex flex-col">
-                                <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
+                                <DocTable />
+                                {/* <div className="overflow-x-auto sm:-mx-6 lg:-mx-8">
                                     <div className="inline-block min-w-full py-2 sm:px-6 lg:px-8">
                                     <div className="overflow-hidden rounded-md">
                                         <table className="min-w-full text-center text-sm font-sans">
@@ -297,24 +293,24 @@ const Manaccounts = () => {
                                         </table>
                                     </div>
                                     </div>
-                                </div>
+                                </div> */}
                             </div>
                         </div>
                     </div>
                     </Fragment>
                     <Transition.Root show={open} as={Fragment}>
-                    <Dialog as="div" className="relative z-10" initialFocus={cancelButtonRef} onClose={setOpen}>
-                        <Transition.Child
-                        as={Fragment}
-                        enter="ease-out duration-300"
-                        enterFrom="opacity-0"
-                        enterTo="opacity-100"
-                        leave="ease-in duration-200"
-                        leaveFrom="opacity-100"
-                        leaveTo="opacity-0"
-                        >
-                        <div className="fixed inset-0 backdrop-blur-md bg-white/30 transition-opacity" />
-                        </Transition.Child>
+                        <Dialog as="div" className="relative z-10" initialFocus={cancelButtonRef} onClose={setOpen}>
+                            <Transition.Child
+                                as={Fragment}
+                                enter="ease-out duration-300"
+                                enterFrom="opacity-0"
+                                enterTo="opacity-100"
+                                leave="ease-in duration-200"
+                                leaveFrom="opacity-100"
+                                leaveTo="opacity-0"
+                            >
+                            <div className="fixed inset-0 backdrop-blur-md bg-white/30 transition-opacity" />
+                            </Transition.Child>
 
                         <div className="fixed inset-0 z-10 overflow-y-auto">
                         <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">

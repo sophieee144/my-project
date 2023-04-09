@@ -17,14 +17,14 @@ function Search() {
     <form onSubmit={handleSubmit}>
       <input
         type="text"
-        placeholder="Search"
+        placeholder="Search here ..."
         value={searchValue}
         onChange={handleChange}
-        className="px-2 py-1 rounded-lg border border-gray-300 focus:outline-none focus:ring focus:border-blue-300"
+        className="px-2 py-1 rounded-md text-slate-700 font-sans"
       />
       <button
         type="submit"
-        className="ml-2 px-4 py-1 rounded-lg bg-blue-500 text-white hover:bg-blue-600 focus:outline-none focus:ring focus:border-blue-300"
+        className="ml-2 px-4 py-1 rounded-md bg-blue-500 text-white hover:bg-blue-600"
       >
         Search
       </button>

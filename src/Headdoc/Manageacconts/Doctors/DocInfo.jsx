@@ -14,11 +14,14 @@ import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
 import Nav from '../../Nav'
 import Sidebar from '../../Sidebar/Sidebar'
 import femaledoctor from '../../../assets/femaledoctor.jpg'
+import Delete from "../../Delete";
 
 const DocInfo = () => {
+
     const [open, setOpen] = useState(false)
 
     const cancelButtonRef = useRef(null)
+
   return (
     <div className='bg-blue-50'>
         <div className="d-flex container-fluid flex-col fixed top-0 left-0 w-screen">
@@ -79,7 +82,7 @@ const DocInfo = () => {
                                             <button
                                                 type="button"
                                                 className="inline-flex w-full justify-center rounded-md bg-teal-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-teal-500 sm:ml-3 sm:w-auto"
-                                                onClick={() => setOpen(true)} ref={cancelButtonRef}
+                                                
                                             >
                                                 Edit
                                             </button>
@@ -87,7 +90,7 @@ const DocInfo = () => {
                                             <button
                                                 type="button"
                                                 className="inline-flex w-full justify-center rounded-md bg-orange-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-orange-500 sm:ml-3 sm:w-auto"
-                                                onClick={() => setOpen(true)} ref={cancelButtonRef}
+                                                
                                             >
                                                 Suspend
                                             </button>
@@ -104,7 +107,10 @@ const DocInfo = () => {
                             </div>
                         </div>
                     </div>
-                    <Transition.Root show={open} as={Fragment}>
+                    {open && (
+                        <Delete />
+                     )}
+                    {/* <Transition.Root show={open} as={Fragment}>
                     <Dialog as="div" className="relative z-10" initialFocus={cancelButtonRef} onClose={setOpen}>
                         <Transition.Child
                         as={Fragment}
@@ -170,7 +176,7 @@ const DocInfo = () => {
                             </div>
                         </div>
                         </Dialog>
-                    </Transition.Root>
+                    </Transition.Root> */}
                 </main>
             </div>
         </div>

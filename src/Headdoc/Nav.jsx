@@ -1,243 +1,161 @@
-import React, { useState } from "react";
-import {
-  Popover,
-  PopoverHandler,
-  PopoverContent,
-  Button,
-  Avatar,
-  Typography,
-} from "@material-tailwind/react";
-import { MapPinIcon, BuildingOffice2Icon } from "@heroicons/react/24/outline";
- 
-import { Transition } from "@headlessui/react";
+import React from "react";
+import { Fragment, useRef, useState } from 'react'
 import { Link } from "react-router-dom";
-import femaledoctor from '../assets/femaledoctor.jpg'
-import SearchComponent from "./Search";
+import { Dialog } from '@headlessui/react'
+import { Disclosure, Menu, Transition } from '@headlessui/react'
+import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 
-function Nav() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [openPopover, setOpenPopover] = React.useState(false);
-  const triggers = {
-    onMouseEnter: () => setOpenPopover(true),
-    onMouseLeave: () => setOpenPopover(false),
+import Search from './Search'
+
+function Navbar() {
+  const [open, setOpen] = useState(false)
+  const panelButtonRef = useRef(null)
+  const [buttonClicked, setButtonClicked] = useState(false);
+  const handleButtonClick = () => {
+    setShowNotification(true);
+    setButtonClicked(true);
   };
   return (
     <div>
-      <nav className="bg-gray-800 ">
-        <div className="max-w-full">
-          <div className="flex justify-between h-16">
+      <nav className="bg-gray-800 flex ">
+        <div className="max-w-7xl px-4">
+          <div className="flex items-center h-16">
             <div className="flex items-center">
-              <div className="flex-shrink-0 ml-4">
+                <a>
                 <img
                   className="h-8 w-8"
                   src="https://tailwindui.com/img/logos/workflow-mark-indigo-500.svg"
                   alt="Workflow"
                 />
-                
-              </div>
-              <span className="text-2xl font-semibold pl-3 dark:text-white">
+                </a>
+              <span className="text-2xl font-semibold pl-4 dark:text-white">
                 DETECT ++
               </span>
-              
-              {/* <div className="relative pl-24">
-                <form className="w-full max-w-sm">
-                  <div className="flex items-center border-b border-teal-500 py-2">
-                    <input className="appearance-none bg-transparent border-none w-full text-gray-100 mr-3 py-1 px-2 leading-tight focus:outline-none" type="text" placeholder="Search here ..." aria-label="Search"/>
-                    <button className="flex-shrink-0 bg-teal-500 hover:bg-teal-700 border-teal-500 hover:border-teal-700 text-sm border-4 text-white py-1 px-2 rounded" type="button">
-                      Search
-                    </button>
-                    <button className="flex-shrink-0 border-transparent border-4 text-teal-500 hover:text-teal-800 text-sm py-1 px-2 rounded" type="button">
-                      Cancel
-                    </button>
-                  </div>
-                </form>
-              </div> */}
-              <SearchComponent />
-              <a
-                href="#"
-                className="flex justify-end items-center rounded-md"
-              >
-                 <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="w-6 h-6 text-gray-100"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    strokeWidth={2}
-                  >
-                    <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
-                    />
-                    <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
-                    />
-                 </svg>
-              </a>
-              <a
-                href="#"
-                className="flex items-center rounded-md"
-              >
+            </div>
+            <Search></Search>
+            <div className="inline flex justify-arround">
+            <Fragment>
+              <button type="button" onClick={() => setOpen(true)}>
                 <svg 
-                    xmlns="http://www.w3.org/2000/svg" 
-                    fill="none" 
-                    viewBox="0 0 24 24" 
-                    stroke="currentColor" 
-                    className="w-6 h-6 text-gray-100"
-                    strokeWidth={2}
+                  xmlns="http://www.w3.org/2000/svg" 
+                  fill="none" 
+                  viewBox="0 0 24 24" 
+                  strokeWidth="1.5" 
+                  stroke="currentColor" 
+                  className="w-6 h-6 text-gray-100"
                 >
                   <path 
-                      strokeLinecap="round" 
-                      strokeLinejoin="round" 
-                      d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" 
+                    strokeLinecap="round" 
+                    strokeLinejoin="round" 
+                    d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0" 
                   />
                 </svg>
-              </a>
-              <Popover open={openPopover} handler={setOpenPopover}>
-                <PopoverHandler {...triggers}>
-                  <Button variant="text">
-                    <Avatar
-                      className="rounded-full"
-                      width={56}
-                      variant="circular"
-                      src={femaledoctor} 
-                      alt="Example Image" 
-                    />
-                  </Button>
-                </PopoverHandler>
-                <PopoverContent {...triggers} className="max-w-[18rem] max-h-[28rem]">
-                  <Typography
-                    variant="h6"
-                    color="blue-gray"
-                    className="mb-2 flex items-center gap-2 font-medium"
-                  >
-                    <span>Sandy bell</span> •{" "}
-                    <a href="#" className="text-sm text-blue-gray-700">
-                      @sophie
-                    </a>
-                  </Typography>
-                  <Typography variant="small" color="gray" className="font-normal">
-                    Frontend Developer • Major interest in Web Development: motivated to
-                    achieve measurable results, to deepen my knowledge and improve my
-                    skills.
-                  </Typography>
-                  <div className="mt-6 flex items-center gap-8 border-t border-blue-gray-50 pt-4">
-                    <Typography
-                      variant="small"
-                      color="gray"
-                      className="flex items-center gap-1 text-xs font-normal"
-                    >
-                      <MapPinIcon strokeWidth={2} className="-mt-0.5 h-3.5 w-3.5" />
-                      Algeria la3ina
-                    </Typography>
-                    <Typography
-                      as="a"
-                      href="#"
-                      variant="small"
-                      color="gray"
-                      className="flex items-center gap-1 text-xs font-normal"
-                    >
-                      <BuildingOffice2Icon
-                        strokeWidth={2}
-                        className="-mt-0.5 h-3.5 w-3.5"
-                      />
-                      Material Tailwind
-                    </Typography>
-                  </div>
-                </PopoverContent>
-              </Popover>
-   
-            </div>
-            {/* <div className="-mr-2 flex md:hidden">
-              <button
-                onClick={() => setIsOpen(!isOpen)}
-                type="button"
-                className="bg-gray-900 inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-800 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-offset-gray-800 focus:ring-white"
-                aria-controls="mobile-menu"
-                aria-expanded="false"
-              >
-                <span className="sr-only">Open main menu</span>
-                {!isOpen ? (
-                  <svg
-                    className="block h-6 w-6"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M4 6h16M4 12h16M4 18h16"
-                    />
-                  </svg>
-                ) : (
-                  <svg
-                    className="block h-6 w-6"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M6 18L18 6M6 6l12 12"
-                    />
-                  </svg>
-                )}
               </button>
-            </div> */}
+            </Fragment>
+            <Link >
+              <svg 
+                xmlns="http://www.w3.org/2000/svg" 
+                fill="none" 
+                viewBox="0 0 24 24" 
+                strokeWidth="1.5" 
+                stroke="currentColor" 
+                className="w-6 h-6 text-gray-100"
+              >
+                <path 
+                  strokeLinecap="round" 
+                  strokeLinejoin="round" 
+                  d="M10.343 3.94c.09-.542.56-.94 1.11-.94h1.093c.55 0 1.02.398 1.11.94l.149.894c.07.424.384.764.78.93.398.164.855.142 1.205-.108l.737-.527a1.125 1.125 0 011.45.12l.773.774c.39.389.44 1.002.12 1.45l-.527.737c-.25.35-.272.806-.107 1.204.165.397.505.71.93.78l.893.15c.543.09.94.56.94 1.109v1.094c0 .55-.397 1.02-.94 1.11l-.893.149c-.425.07-.765.383-.93.78-.165.398-.143.854.107 1.204l.527.738c.32.447.269 1.06-.12 1.45l-.774.773a1.125 1.125 0 01-1.449.12l-.738-.527c-.35-.25-.806-.272-1.203-.107-.397.165-.71.505-.781.929l-.149.894c-.09.542-.56.94-1.11.94h-1.094c-.55 0-1.019-.398-1.11-.94l-.148-.894c-.071-.424-.384-.764-.781-.93-.398-.164-.854-.142-1.204.108l-.738.527c-.447.32-1.06.269-1.45-.12l-.773-.774a1.125 1.125 0 01-.12-1.45l.527-.737c.25-.35.273-.806.108-1.204-.165-.397-.505-.71-.93-.78l-.894-.15c-.542-.09-.94-.56-.94-1.109v-1.094c0-.55.398-1.02.94-1.11l.894-.149c.424-.07.765-.383.93-.78.165-.398.143-.854-.107-1.204l-.527-.738a1.125 1.125 0 01.12-1.45l.773-.773a1.125 1.125 0 011.45-.12l.737.527c.35.25.807.272 1.204.107.397-.165.71-.505.78-.929l.15-.894z" 
+                />
+                <path 
+                strokeLinecap="round" 
+                strokeLinejoin="round" 
+                d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" 
+                />
+              </svg>
+            </Link>
+            <Transition.Root show={open} as={Fragment}>
+                <Dialog as="div" className="relative z-10" onClose={setOpen}>
+                  <Transition.Child
+                    as={Fragment}
+                    enter="ease-in-out duration-500"
+                    enterFrom="opacity-0"
+                    enterTo="opacity-100"
+                    leave="ease-in-out duration-500"
+                    leaveFrom="opacity-100"
+                    leaveTo="opacity-0"
+                  >
+                    <div className="fixed inset-0 bg-gray-900 bg-opacity-75 transition-opacity" />
+                  </Transition.Child>
+
+                  <div className="fixed inset-0 overflow-hidden">
+                    <div className="absolute inset-0 overflow-hidden">
+                      <div className="pointer-events-none fixed inset-y-0 right-0 flex max-w-full pl-10">
+                        <Transition.Child
+                          as={Fragment}
+                          enter="transform transition ease-in-out duration-500 sm:duration-700"
+                          enterFrom="translate-x-full"
+                          enterTo="translate-x-0"
+                          leave="transform transition ease-in-out duration-500 sm:duration-700"
+                          leaveFrom="translate-x-0"
+                          leaveTo="translate-x-full"
+                        >
+                          <Dialog.Panel className="pointer-events-auto relative w-screen max-w-md">
+                            <Transition.Child
+                              as={Fragment}
+                              enter="ease-in-out duration-500"
+                              enterFrom="opacity-0"
+                              enterTo="opacity-100"
+                              leave="ease-in-out duration-500"
+                              leaveFrom="opacity-100"
+                              leaveTo="opacity-0"
+                            >
+                              <div className="absolute left-0 top-0 -ml-8 flex pr-2 pt-4 sm:-ml-10 sm:pr-4">
+                                <button
+                                  type="button"
+                                  className="rounded-md text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-white"
+                                  onClick={() => setOpen(false)}
+                                >
+                                  <span className="sr-only">Close panel</span>
+                                  <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                                </button>
+                              </div>
+                            </Transition.Child>
+                            <div className="flex h-full flex-col overflow-y-scroll bg-slate-800 py-6 shadow-xl">
+                              <div className="px-4 sm:px-6">
+                                <Dialog.Title className="text-base font-semibold leading-6 text-gray-900">
+                                 <div className="flex justify-evenly text-slate-200 text-sm text-sans">
+                                    <Link className="hover:text-indigo-500 hover:underline underline-offset-4 hover:underline decoration-2">
+                                      Notification
+                                    </Link>
+                                    <Link className="hover:text-indigo-500 hover:underline underline-offset-4 hover:underline decoration-2">
+                                      Inbox
+                                    </Link>
+                                    <Link className="hover:text-indigo-500 hover:underline underline-offset-4 hover:underline decoration-2">
+                                      profile
+                                    </Link>
+                                    <Link className="hover:text-indigo-500 hover:underline underline-offset-4 hover:underline decoration-2">
+                                      Setting
+                                    </Link>
+                                  </div>
+                                </Dialog.Title>
+                              </div>
+                              <div className="relative mt-6 flex-1 px-4 sm:px-6">
+                                
+                              </div>
+                            </div>
+                          </Dialog.Panel>
+                        </Transition.Child>
+                      </div>
+                    </div>
+                  </div>
+                </Dialog>
+              </Transition.Root>
+            </div>
           </div>
         </div>
-
-        {/* <Transition
-          show={isOpen}
-          enter="transition ease-out duration-100 transform"
-          enterFrom="opacity-0 scale-95"
-          enterTo="opacity-100 scale-100"
-          leave="transition ease-in duration-75 transform"
-          leaveFrom="opacity-100 scale-100"
-          leaveTo="opacity-0 scale-95"
-        >
-          {(ref) => (
-            <div className="md:hidden" id="mobile-menu">
-              <div ref={ref} className="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                
-                <Link to={"/"} className="hover:bg-gray-700 text-white block px-3 py-2 rounded-md text-base font-medium">
-                  Home
-                </Link>
-
-                <Link to={"/calendar"} className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
-                  Calendar
-                </Link>
-
-                <Link to={"/reports"}  className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
-                  Reports
-                </Link>
-
-                <Link to={"/contact"}  className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
-                  Contact
-                </Link>
-
-                <Link to={"/about"}  className="text-gray-300 hover:bg-gray-700 hover:text-white block px-3 py-2 rounded-md text-base font-medium">
-                  About
-                </Link>
-
-              </div>
-            </div>
-          )}
-        </Transition> */}
       </nav>
     </div>
   );
 }
 
-export default Nav;
+export default Navbar;

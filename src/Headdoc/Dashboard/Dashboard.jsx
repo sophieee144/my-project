@@ -1,13 +1,20 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import { Fragment, useRef, useState } from 'react'
 import Nav from '../Nav'
 import Sidebar from '../Sidebar/Sidebar'
 import Chart from './DashboardChart';
 import LineChart from './Sparkline'
 import Line from './Sparkbar'
-import Table from '../Table';
+import Table from '../../Trash/Table';
+import SlideOver from '../../Trash/SlideOver'
+import PatientTable from '../PatientData/PatientTable'
 
 const Dashboard = () => {
+
+    const [open, setOpen] = useState(false)
+    const panelButtonRef = useRef(null)
+
   return (
     <div className='bg-blue-50'>
         <div className="d-flex container-fluid flex-col fixed top-0 left-0 w-screen">
@@ -28,6 +35,10 @@ const Dashboard = () => {
                     {/* <h2 className="text-sm font-sans text-gray-500 mb-8">
                         Home / Dashboard
                     </h2> */}
+                    {open && (
+                       <SlideOver />
+                     )}
+                    
                     <div className="grid grid-rows-5 grid-flow-col pr-4 gap-3">
                         <div className="row-span-3 col-span-3 w-full px-4 py-5 mx-3 bg-white rounded-md shadow">
                             <div className="inline text-xl font-sans text-center text-slate-800">
@@ -81,8 +92,8 @@ const Dashboard = () => {
                             <div className="inline text-xl font-sans text-center text-slate-800">
                                 Patient table
                             </div>
-                            <hr className='my-4 mx-4 border-slate-200'/>
-                            <Table />
+                            <hr className='my-4 mx- border-slate-200'/>
+                            <PatientTable />
                         </div>
                         <div className="row-span-3 col-span-3 w-full px-4 py-5 mx-3 bg-white rounded-md shadow">
                             <div className="text-3xl font-sans font-bold text-left text-slate-200 truncate">
@@ -91,6 +102,7 @@ const Dashboard = () => {
                             <div className="text-lg font-medium text-left text-gray-100 truncate">
                                 This week death's
                             </div>
+                        
                         </div>
                         <div className="row-span-3 col-span-3 w-full px-4 py-5 mx-3 bg-white rounded-md shadow">
                             <div className="text-3xl font-sans font-bold text-center text-slate-700 truncate">
