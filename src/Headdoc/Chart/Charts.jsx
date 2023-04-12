@@ -21,23 +21,25 @@ const Chart = () => {
             <div className="flex h-screen">
                 <Sidebar />
                 
-                <main className="flex-1 p-4 overflow-y-auto">
-                    <h2 className="text-3xl font-medium font-bold text-slate-700 mb-2">
-                        Charts
-                    </h2>
-                    <div className="text-sm font-sans text-gray-500 mb-8">
-                    <div className="text-sm font-sans text-gray-500 mb-8">
-                        <Link to={"/hdoc"} className="underline">Home</Link>
-                        / Chart
-                    </div>
+                <main className="flex-1 p-2 overflow-y-auto">
+                    <div className='mx-3'> 
+                        <h2 className="text-3xl font-medium font-bold text-slate-700 mb-2">
+                            Charts
+                        </h2>
+                        <div className="text-sm font-sans text-gray-500 mb-8">
+                            <div className="text-sm font-sans text-gray-500 mb-8">
+                                <Link to={"/hdoc"} className="underline">Home</Link>
+                                / Chart
+                            </div>
+                        </div>
                     </div>
                     {/* <h2 className="text-sm font-sans text-gray-500 mb-8">
                         Home / Dashboard
                     </h2> */}
-                    <div className='grid grid-cols-1 mb-3 gap-3'>
+                    <div className='grid grid-cols-1 mb-3 mx-2 gap-4'>
                         <AreaChart />  
                     </div>
-                    <div className='grid grid-cols-2 mb-20 gap-2 space-y-'>
+                    <div className='grid grid-cols-2 mb-20 mx-2 gap-4 space-y-'>
                         < PieChart />
                         < BarChart />
                         < LineChart />

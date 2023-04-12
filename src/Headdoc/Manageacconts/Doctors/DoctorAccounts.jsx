@@ -1,27 +1,20 @@
-import React from "react";
-import {
-    Popover,
-    PopoverHandler,
-    PopoverContent,
-    Button,
-    Avatar,
-    Typography,
-  } from "@material-tailwind/react";
+import React from 'react'
 import { Link } from 'react-router-dom'
+import Nav from '../../Nav'
+import Sidebar from '../../Sidebar/Sidebar'
+import Btncompte from '../BtnCompte'
 import { Fragment, useRef, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
-import Nav from '../../Nav'
-import Sidebar from '../../Sidebar/Sidebar'
-import femaledoctor from '../../../assets/femaledoctor.jpg'
-import Delete from "../../Delete";
+import { Tooltip, Button } from "@material-tailwind/react";
+import { Select, Option } from "@material-tailwind/react";
+import DocTable from './DocTable'
+ 
 
-const DocInfo = () => {
-
+const Manaccounts = () => {
     const [open, setOpen] = useState(false)
 
     const cancelButtonRef = useRef(null)
-
   return (
     <div className='bg-blue-50'>
         <div className="d-flex container-fluid flex-col fixed top-0 left-0 w-screen">
@@ -33,86 +26,53 @@ const DocInfo = () => {
                 
                 <main className="flex-1 p-4 overflow-y-auto">
                     <h2 className="text-3xl font-medium font-bold text-slate-700 mb-2">
-                        Doctor informations
+                        Doctors accounts
                     </h2>
                     <div className="text-sm font-sans text-gray-500 mb-8">
-                    <Link to={"/hdoc"} className="underline">Home</Link>
-                        /<Link to={"/hdoc"} className="underline">Manage Account</Link> / 
-                        <Link to={"/doc"} className="underline">Doctors</Link>
-                        /Create account
+                        <Link to={"/hdoc"} className="underline hover:text-indigo-700">Home</Link>
+                        /<Link to={"/hdoc"} className="underline hover:text-indigo-700">Manage Account</Link> / 
+                        <Link to={"/unit"} className="underline hover:text-indigo-700">Units</Link>/
+                        Doctors accounts
                     </div>
-                    <div className="grid grid-cols-1 mb-8 mx-4">
+                    <Fragment>
+                    <div className="grid grid-cols-1 mb-8 mx-2">
                         <div className="w-full px-5 py-3 bg-white rounded-md shadow">
                             <div className="text-2xl font-sans text-slate-800 truncate">
-                                Doctors Accounts
+                                Doctor table
                             </div>
-                            <div className="relative flex flex-col justify-center overflow-hidden">
-                                <div className="w-full p-6 mb-4 m-auto">
-                                    <div className="grid grid-cols-3 gap-4 inline">
-                                        <div className="col-span-1">
-                                            <Avatar
-                                                className="flex rounded-md w-36 h-"
-                                                width={56}
-                                                variant="circular"
-                                                src={femaledoctor} 
-                                                alt="Example Image" 
-                                            />
-                                        </div>
-                                        <div className="">
-                                            <div>name</div>
-                                            <div>surname</div>
-                                            <div>age</div>
-                                            <div>birthday</div>
-                                            <div>year of work</div>
-                                            <div>specialité</div>
-
-                                        </div>
-                                        <div className="..."> 
-                                        <Link to={"/editinfo"}>
-                                            <button
-                                                type="button"
-                                                className="inline-flex w-full justify-center rounded-md bg-teal-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-teal-500 sm:ml-3 sm:w-auto"
-                                                
-                                            >
-                                                Edit
-                                            </button>
-                                        </Link>
-                                            <button
-                                                type="button"
-                                                className="inline-flex w-full justify-center rounded-md bg-orange-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-orange-500 sm:ml-3 sm:w-auto"
-                                                
-                                            >
-                                                Suspend
-                                            </button>
-                                            <button
-                                                type="button"
-                                                className="inline-flex w-full justify-center rounded-md bg-red-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-red-500 sm:ml-3 sm:w-auto"
-                                                onClick={() => setOpen(true)} ref={cancelButtonRef}
-                                            >
-                                                Delete
-                                            </button>
-                                        </div>
-                                    </div>
-                                </div>
+                            <h2 className="text-sm font-sans text-gray-500 mb-6">
+                                1.250 registered
+                            </h2>
+                            <Btncompte>Create account</Btncompte>
+                            <div className="w-72 mt-6">
+                                <Select label="Select Version">
+                                    <Option>Material Tailwind HTML</Option>
+                                    <Option>Material Tailwind React</Option>
+                                    <Option>Material Tailwind Vue</Option>
+                                    <Option>Material Tailwind Angular</Option>
+                                    <Option>Material Tailwind Svelte</Option>
+                                </Select>
+                            </div>
+                            <hr className='my-6 border-gray-200 sm:mx-auto dark:border-gray-300'/>
+                            <div className="flex flex-col">
+                                <DocTable />
                             </div>
                         </div>
                     </div>
-                    {open && (
-                        <Delete />
-                     )}
-                    {/* <Transition.Root show={open} as={Fragment}>
-                    <Dialog as="div" className="relative z-10" initialFocus={cancelButtonRef} onClose={setOpen}>
-                        <Transition.Child
-                        as={Fragment}
-                        enter="ease-out duration-300"
-                        enterFrom="opacity-0"
-                        enterTo="opacity-100"
-                        leave="ease-in duration-200"
-                        leaveFrom="opacity-100"
-                        leaveTo="opacity-0"
-                        >
-                        <div className="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" />
-                        </Transition.Child>
+                    </Fragment>
+                    <Transition.Root show={open} as={Fragment}>
+                        <Dialog as="div" className="relative z-10" initialFocus={cancelButtonRef} onClose={setOpen}>
+                            <Transition.Child
+                                as={Fragment}
+                                enter="ease-out duration-300"
+                                enterFrom="opacity-0"
+                                enterTo="opacity-100"
+                                leave="ease-in duration-200"
+                                leaveFrom="opacity-100"
+                                leaveTo="opacity-0"
+                            >
+                            <div className="fixed inset-0 backdrop-blur-md bg-white/30 transition-opacity" />
+                            </Transition.Child>
 
                         <div className="fixed inset-0 z-10 overflow-y-auto">
                         <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
@@ -166,7 +126,7 @@ const DocInfo = () => {
                             </div>
                         </div>
                         </Dialog>
-                    </Transition.Root> */}
+                    </Transition.Root>
                 </main>
             </div>
         </div>
@@ -174,4 +134,4 @@ const DocInfo = () => {
   )
 }
 
-export default DocInfo
+export default Manaccounts

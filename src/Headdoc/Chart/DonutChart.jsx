@@ -41,7 +41,7 @@ export default class ApexChart extends React.Component {
 
   render() {
     return (
-        <div id="chart" className='bg-white pt-3 mx-2 rounded-md shadow'>
+        <div id="chart" className='bg-white pt-3 rounded-md shadow'>
               <div className="text-md font-medium text-slate-800 pl-4 pb-2">
                   Doughnut Chart
               </div>

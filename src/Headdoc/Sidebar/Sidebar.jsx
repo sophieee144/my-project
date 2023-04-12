@@ -82,11 +82,11 @@ export default function Sidebar() {
                                         </div>
                                     </AccordionHeader>
                                     <AccordionBody className="pl-12 space-y-2 font-sans text-md">
-                                        <Link to={"/doc"} className="block text-gray-700 hover:text-indigo-500 hover:font-bold">
+                                        <Link to={"/unit"} className="block text-gray-700 hover:text-indigo-500 hover:font-bold">
                                             Units
                                         </Link>
                                         <Link to={"/doc"} className="block text-gray-700 hover:text-indigo-500 hover:font-bold">
-                                            Doctors
+                                            Laboratories
                                         </Link>
                                         <Link to={"/doc"} className="block text-gray-700 hover:text-indigo-500 hover:font-bold">
                                             Laboratories

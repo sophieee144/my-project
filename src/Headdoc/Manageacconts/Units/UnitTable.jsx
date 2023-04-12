@@ -1,15 +1,12 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Fragment, useRef, useState } from 'react'
-import Delete from "../Delete";
-import PatientInfo from "./PatientInfo";
+import Delete from '../../Delete'
 
-export default function PatientTable() {
+export default function UnitTable() {
     const [open, setOpen] = useState(false)
 
     const cancelButtonRef = useRef(null)
-
-    const infoButtonRef = useRef(null)
     return (
         <div className="flex flex-col">
             <div className="overflow-x-auto">
@@ -22,7 +19,7 @@ export default function PatientTable() {
                             type="text"
                             name="hs-table-search"
                             id="hs-table-search"
-                            className="block w-full p-2 pl-10 text-sm border-gray-200 rounded-md bg-slate-50 "
+                            className="block w-full p-2 pl-10 text-sm border-gray-200 rounded-full bg-slate-50 "
                             placeholder="Search here . . ."
                         />
                         <div className="absolute inset-y-0 left-0 flex items-center pl-4 pointer-events-none">
@@ -41,8 +38,8 @@ export default function PatientTable() {
 
                     <div className="flex items-center space-x-2">
                         <div className="relative">
-                            <button className="relative z-0 inline-flex text-sm rounded-md shadow-sm focus:ring-accent-500 focus:border-accent-500 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1">
-                                <span className="relative inline-flex mr-2 items-center px-3 py-3 space-x-2 text-sm font-medium text-gray-600 bg-white border border-gray-300 rounded-md hover:bg-indigo-800 hover:text-gray-100 sm:py-2">
+                            <button className="relative z-0 inline-flex text-sm rounded-full shadow-sm focus:ring-accent-500 focus:border-accent-500 hover:bg-gray-50 focus:z-10 focus:outline-none focus:ring-1">
+                                <span className="relative inline-flex mr-2 items-center px-3 py-3 space-x-2 text-sm font-medium text-gray-600 bg-white border border-gray-300 rounded-full hover:bg-indigo-800 hover:text-gray-100 sm:py-2">
                                     <div>
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
@@ -145,19 +142,10 @@ export default function PatientTable() {
                                         <Link to={"/editinfo"} className="text-green-500 hover:text-green-700"> Edit</Link>
                                     </td>
                                     <td className="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
-                                        <button 
-                                            onClick={() => setOpen(true)} 
-                                            ref={cancelButtonRef} 
-                                            className="text-red-500 hover:text-red-700"
-                                        > 
-                                            Delete
-                                        </button>
+                                        <button onClick={() => setOpen(true)} ref={cancelButtonRef} className="text-red-500 hover:text-red-700"> Delete</button>
                                     </td>
                                     <td className="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
-                                        <button 
-                                            onClick={() => setOpen(true)} 
-                                            ref={infoButtonRef} 
-                                            className="flex flex-row-reverse text-blue-500 hover:text-blue-700">
+                                        <Link to={"/doc"} className="flex flex-row-reverse text-blue-500 hover:text-blue-700">
                                            
                                             <svg 
                                                 xmlns="http://www.w3.org/2000/svg" 
@@ -174,7 +162,7 @@ export default function PatientTable() {
                                                 />
                                             </svg>
                                             Learn more
-                                        </button>
+                                        </Link>
                                     </td>
                                 </tr>
                                 <tr>
@@ -234,11 +222,8 @@ export default function PatientTable() {
                 </div>
             </div>
             {open && (
-                    <Delete />
-                )}
-            {open && (
-                    <PatientInfo />
-                )}
+                        <Delete />
+                     )}
         </div>
     );
 }

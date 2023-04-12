@@ -62,7 +62,7 @@ class ChartComponent extends Component {
 
   render() {
     return (
-      <div className='bg-white pt-3 mx-2 rounded-md shadow'>
+      <div className='bg-white pt-3 rounded-md shadow'>
         <div className="text-md font-medium text-slate-800 ml-3 pb-2">
           Line Chart
       </div>

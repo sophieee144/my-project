@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom'
 import Nav from '../../Nav'
 import Sidebar from '../../Sidebar/Sidebar'
 import {useState} from "react";
-import Datepicker from "react-tailwindcss-datepicker";
+import DatePicker from 'react-datepicker';
+import 'react-datepicker/dist/react-datepicker.css';
 
 const EditInfo = () => {
     const [value, setValue] = useState({
@@ -15,6 +16,9 @@ const EditInfo = () => {
         console.log("newValue:", newValue);
         setValue(newValue);
     }
+
+    const [selectedDate, setSelectedDate] = useState(null);
+
   return (
     <div className='bg-blue-50'>
         <div className="d-flex container-fluid flex-col fixed top-0 left-0 w-screen">
@@ -23,17 +27,9 @@ const EditInfo = () => {
             </nav>
             <div className="flex h-screen">
                 <Sidebar />
-                
                 <main className="flex-1 px-10 pt-10 pb-20 overflow-y-auto">
                     <div className="grid grid-cols-1 mb-8 mx-4">
                         <div className="w-full px-5 py-3 bg-white rounded-md shadow">
-                             {/* <div className="text-2xl font-medium text-slate-800 truncate">
-                                Doctors Accounts
-                            </div> 
-                            <h2 className="text-sm font-sans text-gray-500 mb-4">
-                                1.250 registered
-                            </h2> */}
-                            
                             <div className="relative flex flex-col justify-center overflow-hidden">
                                 <div className="w-full p-6 mb-4 m-auto">
                                     <h1 className="text-4xl font-semibold text-center text-blue-700 pb-4">
@@ -59,20 +55,11 @@ const EditInfo = () => {
                                             </label>
                                         </div>
                                         <div className="relative h-11 w-full min-w-[200px]">
-                                        <Datepicker
-                                            value={value}
-                                            onChange={handleValueChange}
-                                        >
-                                            <input
-                                                className="peer h-full w-full border-b border-blue-gray-200 bg-transparent pt-4 pb-1.5 font-sans text-sm font-normal text-blue-gray-700 outline outline-0 transition-all placeholder-shown:border-blue-gray-200 focus:border-indigo-500 focus:outline-0 disabled:border-0 disabled:bg-blue-gray-50"
-                                                placeholder=" "
-                                            />
-                                            <label 
-                                                htmlFor="floatingInput"
-                                                className="after:content[' '] pointer-events-none absolute left-0 -top-1.5 flex h-full w-full select-none text-[11px] font-normal leading-tight text-blue-gray-500 transition-all after:absolute after:-bottom-1.5 after:block after:w-full after:scale-x-0 after:border-b-2 after:border-indigo-500 after:transition-transform after:duration-300 peer-placeholder-shown:text-sm peer-placeholder-shown:leading-[4.25] peer-placeholder-shown:text-blue-gray-500 peer-focus:text-[11px] peer-focus:leading-tight peer-focus:text-indigo-900 peer-focus:after:scale-x-100 peer-focus:after:border-indigo-500 peer-disabled:text-transparent peer-disabled:peer-placeholder-shown:text-blue-gray-500">
-                                                Birth day
-                                            </label>
-                                        </Datepicker>
+                                        <DatePicker
+                                            selected={selectedDate}
+                                            onChange={date => setSelectedDate(date)}
+                                            className="block w-full px-4 py-2 mt-2 text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                                        />
                                         </div>
                                         <div className="relative h-11 w-full min-w-[200px]">
                                             <input
