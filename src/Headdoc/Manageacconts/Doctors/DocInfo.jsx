@@ -14,7 +14,7 @@ import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
 import Nav from '../../Nav'
 import Sidebar from '../../Sidebar/Sidebar'
 import femaledoctor from '../../../assets/femaledoctor.jpg'
-import Delete from "../../Delete";
+import Delete from "../../DeleteModal";
 
 const DocInfo = () => {
 

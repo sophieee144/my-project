@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Fragment, useRef, useState } from 'react'
-import Delete from "../Delete";
+import Delete from "../DeleteModal";
 import PatientInfo from "./PatientInfo";
 
 export default function PatientTable() {

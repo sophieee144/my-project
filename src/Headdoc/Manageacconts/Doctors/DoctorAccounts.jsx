@@ -6,9 +6,11 @@ import Btncompte from '../BtnCompte'
 import { Fragment, useRef, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
+import { XMarkIcon } from '@heroicons/react/24/outline'
 import { Tooltip, Button } from "@material-tailwind/react";
 import { Select, Option } from "@material-tailwind/react";
 import DocTable from './DocTable'
+import ValideModal from '../../ValideModal'
  
 
 const Manaccounts = () => {
@@ -23,8 +25,22 @@ const Manaccounts = () => {
             </nav>
             <div className="flex h-screen">
                 <Sidebar />
-                
                 <main className="flex-1 p-4 overflow-y-auto">
+                    {open && (
+                        <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
+                            <strong className="font-bold">Well done!</strong>
+                            <span className="block sm:inline"> Aww yeah, you successfully add account to your data.</span>
+                            <span className="absolute top-0 bottom-0 right-0 px-4 py-3">
+                                <button
+                                    type="button"
+                                    className="text-green-900 hover:text-green-700"
+                                    onClick={() => setOpen(false)}
+                                >
+                                    <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                                </button>
+                            </span>
+                        </div>
+                    )}
                     <h2 className="text-3xl font-medium font-bold text-slate-700 mb-2">
                         Doctors accounts
                     </h2>
@@ -37,14 +53,18 @@ const Manaccounts = () => {
                     <Fragment>
                     <div className="grid grid-cols-1 mb-8 mx-2">
                         <div className="w-full px-5 py-3 bg-white rounded-md shadow">
-                            <div className="text-2xl font-sans text-slate-800 truncate">
-                                Doctor table
+                            <div className='grid grid-cols-6'>
+                                <div className="text-2xl font-sans text-slate-800 truncate">
+                                    Doctor table
+                                </div>
+                                <div className='col-end-7 mt-3'>
+                                    <Btncompte>
+                                        Create account
+                                    </Btncompte>
+                                </div>
                             </div>
-                            <h2 className="text-sm font-sans text-gray-500 mb-6">
-                                1.250 registered
-                            </h2>
-                            <Btncompte>Create account</Btncompte>
-                            <div className="w-72 mt-6">
+                            
+                            {/* <div className="w-72 mt-6">
                                 <Select label="Select Version">
                                     <Option>Material Tailwind HTML</Option>
                                     <Option>Material Tailwind React</Option>
@@ -52,7 +72,7 @@ const Manaccounts = () => {
                                     <Option>Material Tailwind Angular</Option>
                                     <Option>Material Tailwind Svelte</Option>
                                 </Select>
-                            </div>
+                            </div> */}
                             <hr className='my-6 border-gray-200 sm:mx-auto dark:border-gray-300'/>
                             <div className="flex flex-col">
                                 <DocTable />

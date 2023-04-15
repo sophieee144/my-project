@@ -115,7 +115,6 @@ function Navbar() {
                                   className="rounded-md text-gray-300 hover:text-white focus:outline-none focus:ring-2 focus:ring-white"
                                   onClick={() => setOpen(false)}
                                 >
-                                  <span className="sr-only">Close panel</span>
                                   <XMarkIcon className="h-6 w-6" aria-hidden="true" />
                                 </button>
                               </div>

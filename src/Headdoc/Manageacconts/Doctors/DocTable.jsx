@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Fragment, useRef, useState } from 'react'
-import Delete from "../../Delete";
+import Delete from "../../DeleteModal";
 
 export default function DocTable() {
     const [open, setOpen] = useState(false)

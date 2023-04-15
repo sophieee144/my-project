@@ -2,9 +2,12 @@ import React from "react";
 import { Link } from 'react-router-dom'
 import Nav from '../../Nav'
 import Sidebar from '../../Sidebar/Sidebar'
-import {useState} from "react";
+import {useState, useRef} from "react";
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
+import { XMarkIcon } from '@heroicons/react/24/outline'
+import BtnValide from "../../BtnValide";
+
 
 const Manaccounts = () => {
     const [value, setValue] = useState({
@@ -19,6 +22,10 @@ const Manaccounts = () => {
 
     const [selectedDate, setSelectedDate] = useState(null);
 
+    const [open, setOpen] = useState(false)
+
+    const cancelButtonRef = useRef(null)
+
   return (
     <div className='bg-blue-50'>
         <div className="d-flex container-fluid flex-col fixed top-0 left-0 w-screen">
@@ -29,6 +36,21 @@ const Manaccounts = () => {
                 <Sidebar />
                 <main className="flex-1 p-4 overflow-y-auto">
                     <div className="grid grid-cols-1 mb-8 mx-4">
+                        {open && (
+                             <div className="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded relative" role="alert">
+                             <strong className="font-bold">Well done!</strong>
+                             <span className="block sm:inline"> Aww yeah, you successfully add account to your data.</span>
+                             <span className="absolute top-0 bottom-0 right-0 px-4 py-3">
+                                 <button
+                                     type="button"
+                                     className="text-green-900 hover:text-green-700"
+                                     onClick={() => setOpen(false)}
+                                   >
+                                     <XMarkIcon className="h-6 w-6" aria-hidden="true" />
+                                   </button>
+                             </span>
+                           </div>
+                        )}
                         <div className="w-full px-5 py-3 bg-white rounded-md shadow">
                             <div className="relative flex flex-col justify-center overflow-hidden">
                                 <div className="w-full p-6 mb-4 m-auto">
@@ -158,6 +180,20 @@ const Manaccounts = () => {
                                             Grade
                                             </label>
                                         </div>
+                                    </div>
+                                    <div className="flex justify-center space-x-8">
+                                        <Link to={"/doc"}>
+                                            <button
+                                                type="button"
+                                                className="rounded-sm bg-indigo-700 text-white py-2 px-8 rounded lg:ml-8 hover:bg-white hover:text-indigo-700 hover:border-solid border-2 border-indigo-700 duration-500"
+                                                onClick={() => setOpen(true)} ref={cancelButtonRef}
+                                            >
+                                                Valide
+                                            </button>
+                                        </Link>
+                                    <BtnValide>
+                                        Cancel
+                                    </BtnValide>
                                     </div>
                                 </div>
                             </div>
