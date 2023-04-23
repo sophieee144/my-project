@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Nav from '../Nav'
+import Nav from '../Nav/Nav'
 import Sidebar from '../Sidebar/Sidebar'
  
 
@@ -27,12 +27,8 @@ const Inbox = () => {
                     <div className="grid grid-cols-1 mb-8 mx-2">
                         <div className="w-full px-5 py-3 bg-white rounded-md shadow">
                             <div className="text-2xl font-sans text-slate-800 truncate">
-                                Doctor table
+                              Email box
                             </div>
-                            <h2 className="text-sm font-sans text-gray-500 mb-6">
-                                1.250 registered
-                            </h2>
-                            
                             <hr className='my-6 border-gray-200 sm:mx-auto dark:border-gray-300'/>
                             <div className="flex flex-col">
                                 

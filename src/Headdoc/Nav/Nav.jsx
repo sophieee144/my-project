@@ -5,18 +5,32 @@ import { Dialog } from '@headlessui/react'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 
-import Search from './Search'
+import Search from '../Search'
+import Notification from "./Notification";
+import Profile from './Profile'
+import Setting from './Setting'
+import InboxComponent from "./InboxComponent";
 
 function Navbar() {
   const [open, setOpen] = useState(false)
   const panelButtonRef = useRef(null)
+
+  const [show, setShow] = useState(false)
+  const panelBtnRef = useRef(null)
+
+  const [activeComponent, setActiveComponent] = useState('notification');
+
+  const handleComponentClick = (componentName) => {
+    setActiveComponent(componentName);
+  }
+
   const [buttonClicked, setButtonClicked] = useState(false);
   const handleButtonClick = () => {
     setShowNotification(true);
     setButtonClicked(true);
   };
   return (
-    <div>
+    <>
       <nav className="bg-gray-800 flex ">
         <div className="max-w-7xl px-4">
           <div className="flex items-center h-16">
@@ -122,19 +136,45 @@ function Navbar() {
                             <div className="flex h-full flex-col overflow-y-scroll bg-slate-800 py-6 shadow-xl">
                               <div className="px-4 sm:px-6">
                                 <Dialog.Title className="text-base font-semibold leading-6 text-gray-900">
-                                 <div className="flex justify-evenly text-slate-200 text-sm text-sans">
-                                    <Link className="hover:text-indigo-500 hover:underline underline-offset-4 hover:underline decoration-2">
+                                 <div div className="fixed top-0 left-0 w-full z-10">
+                                    {/* <button onClick={() => setShow(true)} className="hover:text-indigo-500 hover:underline underline-offset-4 hover:underline decoration-2">
                                       Notification
-                                    </Link>
+                                    </button>
+                                    {show && (
+                                        <Notification />
+                                    )}
                                     <Link className="hover:text-indigo-500 hover:underline underline-offset-4 hover:underline decoration-2">
                                       Inbox
                                     </Link>
-                                    <Link className="hover:text-indigo-500 hover:underline underline-offset-4 hover:underline decoration-2">
+                                    <Link to={"/profile"} className="hover:text-indigo-500 hover:underline underline-offset-4 hover:underline decoration-2">
                                       profile
                                     </Link>
                                     <Link className="hover:text-indigo-500 hover:underline underline-offset-4 hover:underline decoration-2">
                                       Setting
-                                    </Link>
+                                    </Link> */}
+                                    <ul className="flex p-4 justify-evenly text-slate-200 text-sm text-sans">
+
+                                      <li onClick={() => handleComponentClick('setting')} className={`cursor-pointer hover:text-indigo-500 ${activeComponent === 'setting' ? 'text-indigo-500 underline underline-offset-8 underline decoration-2' : 'bg-slate-800'}`}>
+                                        Setting
+                                      </li>
+
+                                      <li onClick={() => handleComponentClick('profile')} className={`cursor-pointer hover:text-indigo-500 ${activeComponent === 'profile' ? 'text-indigo-500 underline underline-offset-8 underline decoration-2' : 'bg-slate-800'}`}>
+                                        Profile
+                                      </li>
+
+                                      <li onClick={() => handleComponentClick('inbox')} className={`cursor-pointer hover:text-indigo-500 ${activeComponent === 'inbox' ? 'text-indigo-500 underline underline-offset-8 underline decoration-2' : 'bg-slate-800'}`}>
+                                        Inbox
+                                      </li>
+
+                                      <li onClick={() => handleComponentClick('notification')} className={`cursor-pointer hover:text-indigo-500 ${activeComponent === 'notification' ? 'text-indigo-500 underline underline-offset-8 underline decoration-2' : 'bg-slate-800'}`}>
+                                        Notification
+                                      </li>
+                                      
+                                    </ul>
+                                    {activeComponent === 'setting' && <Setting />}
+                                    {activeComponent === 'profile' && <Profile />}
+                                    {activeComponent === 'inbox' && <InboxComponent />}
+                                    {activeComponent === 'notification' && <Notification />}
                                   </div>
                                 </Dialog.Title>
                               </div>
@@ -153,7 +193,7 @@ function Navbar() {
           </div>
         </div>
       </nav>
-    </div>
+    </>
   );
 }
 

@@ -1,11 +1,22 @@
 import React from "react";
 import { Link } from 'react-router-dom'
-import Nav from '../../Nav'
+import Nav from '../../Nav/Nav'
 import Sidebar from '../../Sidebar/Sidebar'
 import {useState, useRef} from "react";
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import { XMarkIcon } from '@heroicons/react/24/outline'
+import {
+  Button,
+  Dialog,
+  Card,
+  CardHeader,
+  CardBody,
+  CardFooter,
+  Typography,
+  Input,
+  Checkbox,
+} from "@material-tailwind/react";
 import BtnValide from "../../BtnValide";
 
 
@@ -25,6 +36,9 @@ const Manaccounts = () => {
     const [open, setOpen] = useState(false)
 
     const cancelButtonRef = useRef(null)
+
+    const [show, setShow] = React.useState(false);
+    const handleOpen = () => setShow((cur) => !cur);
 
   return (
     <div className='bg-blue-50'>
@@ -181,24 +195,72 @@ const Manaccounts = () => {
                                             </label>
                                         </div>
                                     </div>
-                                    <div className="flex justify-center space-x-8">
+                                    <div className="flex justify-center">
+                                        <BtnValide>
+                                            Cancel
+                                        </BtnValide>
                                         <Link to={"/doc"}>
                                             <button
                                                 type="button"
-                                                className="rounded-sm bg-indigo-700 text-white py-2 px-8 rounded lg:ml-8 hover:bg-white hover:text-indigo-700 hover:border-solid border-2 border-indigo-700 duration-500"
+                                                className="rounded-full bg-indigo-700 text-white py-2 px-8 rounded lg:ml-8 hover:bg-white hover:text-indigo-700 hover:border-solid border-2 border-indigo-700 duration-500"
                                                 onClick={() => setOpen(true)} ref={cancelButtonRef}
                                             >
                                                 Valide
                                             </button>
                                         </Link>
-                                    <BtnValide>
-                                        Cancel
-                                    </BtnValide>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    { show && (
+                        <React.Fragment>
+                        <Button onClick={handleOpen}>Sign In</Button>
+                        <Dialog
+                            size="xs"
+                            open={show}
+                            handler={handleOpen}
+                            className="bg-transparent shadow-none"
+                        >
+                            <Card className="mx-auto w-full max-w-[24rem]">
+                            <CardHeader
+                                variant="gradient"
+                                color="blue"
+                                className="mb-4 grid h-28 place-items-center"
+                            >
+                                <Typography variant="h3" color="white">
+                                Sign In
+                                </Typography>
+                            </CardHeader>
+                            <CardBody className="flex flex-col gap-4">
+                                <Input label="Email" size="lg" />
+                                <Input label="Password" size="lg" />
+                                <div className="-ml-2.5">
+                                <Checkbox label="Remember Me" />
+                                </div>
+                            </CardBody>
+                            <CardFooter className="pt-0">
+                                <Button variant="gradient" onClick={handleOpen} fullWidth>
+                                Sign In
+                                </Button>
+                                <Typography variant="small" className="mt-6 flex justify-center">
+                                Don&apos;t have an account?
+                                <Typography
+                                    as="a"
+                                    href="#signup"
+                                    variant="small"
+                                    color="blue"
+                                    className="ml-1 font-bold"
+                                    onClick={handleOpen}
+                                >
+                                    Sign up
+                                </Typography>
+                                </Typography>
+                            </CardFooter>
+                            </Card>
+                        </Dialog>
+                    </React.Fragment>
+                    )}
                 </main>
             </div>
         </div>

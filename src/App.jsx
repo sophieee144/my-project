@@ -10,6 +10,7 @@ import ForgotPassword from './components/Header/Login/ForgotPassword'
 import EditInfo from './Headdoc/Manageacconts/Doctors/EditInfo';
 import DoctorAccounts from './Headdoc/Manageacconts/Doctors/DoctorAccounts'
 import Inbox from './Headdoc/Inbox/Inbox';
+// import Notification from './Headdoc/Nav/Notification'
 
 function App() {
  
@@ -27,6 +28,7 @@ function App() {
           <Route path='editinfo' exact element={<EditInfo />}></Route>
           <Route path='doc' exact element={<DoctorAccounts />}></Route>
           <Route path='inbox' exact element={<Inbox />}></Route>
+          {/* <Route path='notification' exact element={<Notification />}></Route> */}
           
       </Routes>
       

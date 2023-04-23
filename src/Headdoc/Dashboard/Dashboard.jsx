@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import { Fragment, useRef, useState } from 'react'
-import Nav from '../Nav'
+import Nav from '../Nav/Nav'
 import Sidebar from '../Sidebar/Sidebar'
 import Chart from './DashboardChart';
 import LineChart from './Sparkline'

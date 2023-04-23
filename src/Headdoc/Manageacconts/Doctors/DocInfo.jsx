@@ -11,7 +11,7 @@ import { Link } from 'react-router-dom'
 import { Fragment, useRef, useState } from 'react'
 import { Dialog, Transition } from '@headlessui/react'
 import { ExclamationTriangleIcon } from '@heroicons/react/24/outline'
-import Nav from '../../Nav'
+import Nav from '../../Nav/Nav'
 import Sidebar from '../../Sidebar/Sidebar'
 import femaledoctor from '../../../assets/femaledoctor.jpg'
 import Delete from "../../DeleteModal";

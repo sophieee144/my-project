@@ -1,12 +1,27 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Fragment, useRef, useState } from 'react'
+import {
+    Button,
+    Dialog,
+    Card,
+    CardHeader,
+    CardBody,
+    CardFooter,
+    Typography,
+    Input,
+    Checkbox,
+  } from "@material-tailwind/react";
 import Delete from "../../DeleteModal";
 
 export default function DocTable() {
     const [open, setOpen] = useState(false)
 
     const cancelButtonRef = useRef(null)
+
+    const [show, setShow] = React.useState(false);
+    const handleOpen = () => setShow((cur) => !cur);
+
     return (
         <div className="flex flex-col">
             <div className="overflow-x-auto">
@@ -142,7 +157,7 @@ export default function DocTable() {
                                         <Link to={"/editinfo"} className="text-green-500 hover:text-green-700"> Edit</Link>
                                     </td>
                                     <td className="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
-                                        <button onClick={() => setOpen(true)} ref={cancelButtonRef} className="text-red-500 hover:text-red-700"> Delete</button>
+                                        <button onClick={() => setOpen(true)} className="text-red-500 hover:text-red-700"> Delete</button>
                                     </td>
                                     <td className="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
                                         <Link to={"/docinformation"} className="flex flex-row-reverse text-blue-500 hover:text-blue-700">
@@ -190,7 +205,7 @@ export default function DocTable() {
                                         0987654432
                                     </td>
                                     <td className="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
-                                        <Link className="text-green-500 hover:text-green-700"> Edit</Link>
+                                        <button onClick={() => setShow(true)} ref={cancelButtonRef} className="text-green-500 hover:text-green-700"> Edit</button>
                                     </td>
                                     <td className="px-6 py-4 text-sm font-medium text-right whitespace-nowrap">
                                         <Link className="text-red-500 hover:text-red-700"> Delete</Link>
@@ -221,9 +236,90 @@ export default function DocTable() {
                     </div>
                 </div>
             </div>
-            {open && (
+            { show && (
+                // <React.Fragment>
+                //     <Button onClick={handleOpen}>Sign In</Button>
+                //     <Dialog
+                //         size="xs"
+                //         open={show}
+                //         handler={handleOpen}
+                //         className="bg-transparent shadow-none"
+                //     >
+                //         <Card className="mx-auto w-full max-w-[24rem]">
+                //          <CardHeader
+                //             variant="gradient"
+                //             color="blue"
+                //             className="mb-4 grid h-28 place-items-center"
+                //         >
+                //             <Typography variant="h3" color="white">
+                //                 Sign In
+                //             </Typography>
+                //         </CardHeader>
+                //         <CardBody className="flex flex-col gap-4">
+                //             <Input label="Email" size="lg" />
+                //             <Input label="Password" size="lg" />
+                //             <div className="-ml-2.5">
+                //                 <Checkbox label="Remember Me" />
+                //             </div>
+                //         </CardBody>
+                //         <CardFooter className="pt-0">
+                //             <Button variant="gradient" onClick={handleOpen} fullWidth>
+                //                 Sign In
+                //                 </Button>
+                //                 <Typography variant="small" className="mt-6 flex justify-center">
+                //                 Don&apos;t have an account?
+                //                 <Typography
+                //                     as="a"
+                //                     href="#signup"
+                //                     variant="small"
+                //                     color="blue"
+                //                     className="ml-1 font-bold"
+                //                     onClick={handleOpen}
+                //                 >
+                //                     Sign up
+                //                 </Typography>
+                //                 </Typography>
+                //             </CardFooter>
+                //             </Card>
+                //         </Dialog>
+                //     </React.Fragment>
+                <div className="fixed inset-0 backdrop-blur-sm bg-white/30 transition-opacity">
+            <div className="fixed inset-0 z-10 overflow-y-auto">
+                <div className="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+                    <div className="transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
+                        <div className="flex bg-white px-16 py-14 rounded-md text-center">
+                            <div className="mt-3 sm:ml-4 sm:mt-0 sm:text-center">
+                                <div className="absolute text-center top-0 bg-red-600 rounded-lg py-5"> 
+                                    Sign up
+                                </div>
+                                <h3 className="text-base font-semibold leading-6 text-gray-900">
+                                    Delete account
+                                </h3>
+                                <div className="mt-2">
+                                    <p className="text-sm text-gray-500">
+                                        Are you sure you want to delete this account? All of his data will be permanently
+                                        removed. This action cannot be undone.
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                        <div className="bg-gray-50 px-4 py-3 sm:flex sm:px-6">
+                                <button
+                                    type="button"
+                                    className="flex w-full justify-center rounded-md bg-blue-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-blue-500 sm:ml-3 sm:w-auto"
+                                    onClick={() => setShow(false)}   
+                                >
+                                    Delete
+                                </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+                    )}
+                    {open && (
                         <Delete />
-                     )}
+                    )}
         </div>
     );
 }

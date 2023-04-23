@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from 'react-router-dom'
-import Nav from '../../Nav'
+import Nav from '../../Nav/Nav'
 import Sidebar from '../../Sidebar/Sidebar'
 import {useState} from "react";
 import DatePicker from 'react-datepicker';

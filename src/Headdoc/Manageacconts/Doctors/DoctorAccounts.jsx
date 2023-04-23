@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Nav from '../../Nav'
+import Nav from '../../Nav/Nav'
 import Sidebar from '../../Sidebar/Sidebar'
 import Btncompte from '../BtnCompte'
 import { Fragment, useRef, useState } from 'react'
@@ -53,7 +53,7 @@ const Manaccounts = () => {
                     <Fragment>
                     <div className="grid grid-cols-1 mb-8 mx-2">
                         <div className="w-full px-5 py-3 bg-white rounded-md shadow">
-                            <div className='grid grid-cols-6'>
+                            <div className='grid grid-cols-5'>
                                 <div className="text-2xl font-sans text-slate-800 truncate">
                                     Doctor table
                                 </div>
